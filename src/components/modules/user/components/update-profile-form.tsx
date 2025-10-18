@@ -1,29 +1,21 @@
 "use client"
 
-import { useState } from "react"
 import { authClient, useSession } from '@/lib/auth-client'
 import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { CheckCircle2, XCircle } from "lucide-react"
-import { SessionType, UserType } from "@/types/auth"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DateProfileFormatter } from "../../shared/date/date-formatter"
 import ImageUpload from "./image-upload"
-import { convertImageToBase64 } from "@/lib/utils"
+import { toast } from 'sonner'
 
 const allowedIds = ["name", "image"]
 
 type UpdateProfileFormProps = {
-  // user: UserType
-  // session: SessionType
 }
 
-const UpdateProfileForm = (
-  // { user, session }: UpdateProfileFormProps
-) => {
-
+const UpdateProfileForm = ({ }: UpdateProfileFormProps) => {
   const { data, refetch, isPending, error } = useSession()
 
   if (!data || isPending) {
@@ -37,29 +29,21 @@ const UpdateProfileForm = (
   const { user, session } = data
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = e.target
-    if (id && !allowedIds.includes(id)) return
-    await authClient.updateUser({
-      [id]: value
-    })
-  }
-  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    console.log({ file });
-    if (!file) {
-      return;
+    const { id, value } = e.target;
+    if (id && !allowedIds.includes(id)) return;
+    try {
+      await authClient.updateUser({ [id]: value });
+      refetch();
+    } catch (err) {
+      toast.error('Error actualizando usuario');
     }
-    const base64Image = await convertImageToBase64(file);
-    await authClient.updateUser({
-      image: base64Image
-    })
-    refetch()
-  }
+  };
+
   return (
     <Card className="w-full max-w-7xl mx-auto">
       <CardContent className="py-2">
         <form className="flex flex-col gap-4">
-          <ImageUpload user={user} session={session} handleImageUpload={handleImageUpload} />
+          <ImageUpload user={user} session={session} />
           <Separator />
           <div className="flex justify-between gap-2 items-center">
             <Label>Email</Label>

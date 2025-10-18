@@ -1,4 +1,6 @@
-import React, { ChangeEvent, useRef } from "react"
+"use client"
+
+import React, { useState } from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   DropdownMenu,
@@ -8,18 +10,50 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Label } from "@/components/ui/label"
 import { SessionType, UserType } from "@/types/auth"
-import { Edit3Icon } from "lucide-react"
+import { Edit3Icon, XIcon } from "lucide-react"
 import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import { authClient, useSession } from "@/lib/auth-client"
+import { toast } from "sonner"
+import { convertImageToBase64 } from "@/lib/utils"
 
 type ImageUploadProps = {
   user: UserType
   session: SessionType
-  handleImageUpload?: (e: ChangeEvent<HTMLInputElement>) => Promise<void>
 }
 
-const ImageUpload = ({ user, session, handleImageUpload }: ImageUploadProps) => {
+const ImageUpload = ({ user, session }: ImageUploadProps) => {
+  const { refetch } = useSession();
+  const [open, setOpen] = useState(false);
+
+  const handleImageRemove = async () => {
+    try {
+      await authClient.updateUser({ image: null });
+      refetch();
+      setOpen(false);
+    } catch (err) {
+      toast.error('Error eliminando imagen');
+    }
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+
+    console.log('Selected file:', file);
+
+    if (!file) return;
+    try {
+      const base64Image = await convertImageToBase64(file);
+      await authClient.updateUser({ image: base64Image });
+      refetch();
+      setOpen(false);
+    } catch (err) {
+      toast.error('Error subiendo imagen');
+    }
+  };
+
   return (
-    <DropdownMenu>
+    <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
         <div className="flex justify-between gap-2">
           <Label htmlFor="image">Imagen (URL)</Label>
@@ -31,30 +65,28 @@ const ImageUpload = ({ user, session, handleImageUpload }: ImageUploadProps) => 
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end">
         <DropdownMenuItem>
-          <Label>
-            <div className="flex gap-4 justify-center items-center">
-              <Edit3Icon />
-              <span>Change Avatar</span>
-            </div>
-            <Input
-              type="file"
-              accept="image/*"
-              className="hidden"
-              onChange={handleImageUpload}
-            />
-          </Label>
+          <div className="flex gap-4 justify-center items-center">
+            <Edit3Icon />
+            <span>Change Avatar</span>
+          </div>
+          <Input
+            type="file"
+            accept="image/*"
+            // className="hidden"
+            onChange={handleImageUpload}
+          />
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          {/* <Button variant="ghost" className="w-full justify-between" onClick={handleRemove}>
+          <Button variant="ghost" className="w-full justify-between" onClick={handleImageRemove}>
             <div className="flex gap-4 justify-center items-center">
               <XIcon />
               <span>Remove Avatar</span>
             </div>
-          </Button> */}
+          </Button>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }
 
 export default ImageUpload
