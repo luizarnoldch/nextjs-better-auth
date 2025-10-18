@@ -46,6 +46,7 @@ const UpdateProfileForm = ({ }: UpdateProfileFormProps) => {
         email: user.email,
         callbackURL: "/dashboard",
       });
+      refetch();
       toast.success('Correo de verificación enviado');
     } catch (err) {
       toast.error('Error enviando correo de verificación');
@@ -74,7 +75,7 @@ const UpdateProfileForm = ({ }: UpdateProfileFormProps) => {
               <div className="flex items-center gap-2">
                 <span className="sr-only">No verificado</span>
                 <XCircle className="text-destructive" />
-                <Button variant="outline" size="icon-sm" className='rounded-full' onClick={sendVerificationEmail}>
+                <Button variant="outline" size="icon-sm" className='rounded-full' onClick={sendVerificationEmail} type='button'>
                   <MailIcon className='size-5' />
                 </Button>
               </div>

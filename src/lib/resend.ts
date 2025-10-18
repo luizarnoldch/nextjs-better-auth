@@ -1,6 +1,6 @@
 "use server";
 
-// import "server-only";
+import "server-only";
 import { Resend } from "resend";
 import EmailVerification from "@/components/modules/email/email-verification";
 import { User } from "@/generated/prisma";
@@ -25,48 +25,14 @@ export const sendVerificationEmail = async (
       subject: "Verify your email address",
       react: EmailVerification({ url }),
     });
-
-    console.log("Verification email sent to:", user.email);
     if (error) {
-      return Response.json({ error }, { status: 500 });
+      console.error("Error sending organization invitation:", error);
+      throw error;
     }
 
-    return Response.json(data);
+    return { success: true, data };
   } catch (error) {
-    return Response.json({ error }, { status: 500 });
+    console.error("Error sending verification email:", error);
+    throw error;
   }
 };
-
-// type SendOrganizationInvitationProps = {
-//   data: SendInvitationEmailType;
-// };
-
-// export const SendOrganizationInvitation = async ({
-//   data,
-// }: SendOrganizationInvitationProps) => {
-//   console.log("Sending organization invitation to:", data);
-
-//   try {
-//     const inviteLink = `${process.env.BETTER_AUTH_URL}/accept-invitation/${data.id}`;
-
-//     const { data: EmailData, error } = await resend.emails.send({
-//       from: resend_from,
-//       to: data.email,
-//       subject: `You're invited to join ${data.organization.name}`,
-//       react: EmailOrganizationInvitation({
-//         data: data,
-//         inviteLink,
-//       }),
-//     });
-
-//     if (error) {
-//       console.error("Error sending organization invitation:", error);
-//       throw error;
-//     }
-
-//     return { success: true, EmailData };
-//   } catch (error) {
-//     console.error("Error sending organization invitation:", error);
-//     throw error;
-//   }
-// };

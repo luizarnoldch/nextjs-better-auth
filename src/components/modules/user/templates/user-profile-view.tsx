@@ -1,4 +1,6 @@
+import { auth } from '@/lib/auth'
 import UpdateProfileForm from '../components/update-profile-form'
+import { headers } from 'next/headers'
 
 type Props = {}
 

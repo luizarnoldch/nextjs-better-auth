@@ -15,10 +15,6 @@ export const auth = betterAuth({
   },
   emailVerification: {
     sendVerificationEmail: async (request) => {
-
-      console.log("request: ", request);
-
-      // Ensure user.image is always string|null
       const safeRequest = {
         ...request,
         user: {
