@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { authClient } from '@/lib/auth-client'
+import { authClient, useSession } from '@/lib/auth-client'
 import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
@@ -10,37 +10,56 @@ import { CheckCircle2, XCircle } from "lucide-react"
 import { SessionType, UserType } from "@/types/auth"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DateProfileFormatter } from "../../shared/date/date-formatter"
+import ImageUpload from "./image-upload"
+import { convertImageToBase64 } from "@/lib/utils"
 
 const allowedIds = ["name", "image"]
 
 type UpdateProfileFormProps = {
-  user: UserType
-  session: SessionType
+  // user: UserType
+  // session: SessionType
 }
 
-const UpdateProfileForm = ({ user, session }: UpdateProfileFormProps) => {
+const UpdateProfileForm = (
+  // { user, session }: UpdateProfileFormProps
+) => {
 
+  const { data, refetch, isPending, error } = useSession()
+
+  if (!data || isPending) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error loading user data</div>
+  }
+
+  const { user, session } = data
+
+  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target
+    if (id && !allowedIds.includes(id)) return
+    await authClient.updateUser({
+      [id]: value
+    })
+  }
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    console.log({ file });
+    if (!file) {
+      return;
+    }
+    const base64Image = await convertImageToBase64(file);
+    await authClient.updateUser({
+      image: base64Image
+    })
+    refetch()
+  }
   return (
-    <Card className="w-full mx-auto">
+    <Card className="w-full max-w-7xl mx-auto">
       <CardContent className="py-2">
         <form className="flex flex-col gap-4">
-          <div>
-          </div>
-          <div className="flex justify-between gap-2">
-            <Label htmlFor="image">Imagen (URL)</Label>
-            <Input
-              id="image"
-              defaultValue={user.image as string}
-              // value={form.image}
-              // onChange={handleChange}
-              placeholder="URL de tu imagen"
-              className="max-w-1/3"
-            />
-            <Avatar className="size-16 rounded-lg">
-              <AvatarImage src={user.image as string} alt={user.name} />
-              <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-            </Avatar>
-          </div>
+          <ImageUpload user={user} session={session} handleImageUpload={handleImageUpload} />
           <Separator />
           <div className="flex justify-between gap-2 items-center">
             <Label>Email</Label>
@@ -62,14 +81,12 @@ const UpdateProfileForm = ({ user, session }: UpdateProfileFormProps) => {
             )}
           </div>
           <Separator />
-
           <div className="flex justify-between gap-2">
             <Label htmlFor="name">Nombre Completo</Label>
             <Input
               id="name"
               defaultValue={user.name}
-              // value={form.name}
-              // onChange={handleChange}
+              onChange={handleChange}
               placeholder="Tu nombre"
               className="max-w-1/3"
             />
