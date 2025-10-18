@@ -25,6 +25,14 @@ type ImageUploadProps = {
 const ImageUpload = ({ user, session }: ImageUploadProps) => {
   const { refetch } = useSession();
   const [open, setOpen] = useState(false);
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
+  const handleEditClick = () => {
+    if (inputRef.current) {
+      inputRef.current.value = "";
+      inputRef.current.click();
+    }
+  };
 
   const handleImageRemove = async () => {
     try {
@@ -64,17 +72,11 @@ const ImageUpload = ({ user, session }: ImageUploadProps) => {
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end">
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={handleEditClick} className="cursor-pointer">
           <div className="flex gap-4 justify-center items-center">
             <Edit3Icon />
             <span>Change Avatar</span>
           </div>
-          <Input
-            type="file"
-            accept="image/*"
-            // className="hidden"
-            onChange={handleImageUpload}
-          />
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Button variant="ghost" className="w-full justify-between" onClick={handleImageRemove}>
@@ -85,6 +87,13 @@ const ImageUpload = ({ user, session }: ImageUploadProps) => {
           </Button>
         </DropdownMenuItem>
       </DropdownMenuContent>
+      <Input
+        ref={inputRef}
+        type="file"
+        accept="image/*"
+        className="hidden"
+        onChange={handleImageUpload}
+      />
     </DropdownMenu>
   );
 }

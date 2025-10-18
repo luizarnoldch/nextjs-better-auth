@@ -5,10 +5,11 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
-import { CheckCircle2, XCircle } from "lucide-react"
+import { CheckCircle2, MailIcon, XCircle } from "lucide-react"
 import { DateProfileFormatter } from "../../shared/date/date-formatter"
 import ImageUpload from "./image-upload"
 import { toast } from 'sonner'
+import { Button } from '@/components/ui/button'
 
 const allowedIds = ["name", "image"]
 
@@ -39,6 +40,18 @@ const UpdateProfileForm = ({ }: UpdateProfileFormProps) => {
     }
   };
 
+  const sendVerificationEmail = async () => {
+    try {
+      await authClient.sendVerificationEmail({
+        email: user.email,
+        callbackURL: "/dashboard",
+      });
+      toast.success('Correo de verificación enviado');
+    } catch (err) {
+      toast.error('Error enviando correo de verificación');
+    }
+  }
+
   return (
     <Card className="w-full max-w-7xl mx-auto">
       <CardContent className="py-2">
@@ -61,6 +74,9 @@ const UpdateProfileForm = ({ }: UpdateProfileFormProps) => {
               <div className="flex items-center gap-2">
                 <span className="sr-only">No verificado</span>
                 <XCircle className="text-destructive" />
+                <Button variant="outline" size="icon-sm" className='rounded-full' onClick={sendVerificationEmail}>
+                  <MailIcon className='size-5' />
+                </Button>
               </div>
             )}
           </div>
