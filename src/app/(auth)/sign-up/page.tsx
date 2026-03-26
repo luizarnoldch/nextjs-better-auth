@@ -23,7 +23,7 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { convertImageToBase64 } from "@/lib/utils";
 
-type Props = {}
+type Props = {};
 
 const SignUpPage = (props: Props) => {
   const [firstName, setFirstName] = useState("");
@@ -203,8 +203,6 @@ const SignUpPage = (props: Props) => {
       </CardFooter>
     </Card>
   );
-}
+};
 
-export default SignUpPage
-
-
+export default SignUpPage;

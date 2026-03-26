@@ -1,6 +1,5 @@
 "use server";
 
-import "server-only";
 import { Resend } from "resend";
 import EmailVerification from "@/components/modules/email/email-verification";
 import { User } from "@/generated/prisma";
