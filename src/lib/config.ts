@@ -25,6 +25,11 @@ const envSchema = z.object({
   MINIO_BROWSER_REDIRECT_URL: z.string().optional(),
   MINIO_REGION: z.string(),
   MINIO_BUCKET_NAME: z.string(),
+
+  // Polar
+  POLAR_ACCESS_TOKEN: z.string(),
+  POLAR_WEBHOOK_SECRET: z.string().optional(),
+  POLAR_ENVIRONMENT: z.enum(["production", "sandbox"]).default("sandbox"),
 });
 
 // Parse and validate
@@ -54,6 +59,12 @@ const config = {
     browserRedirectUrl: parsedEnv.MINIO_BROWSER_REDIRECT_URL,
     region: parsedEnv.MINIO_REGION || "us-east-1",
     bucketName: parsedEnv.MINIO_BUCKET_NAME,
+  },
+
+  polar: {
+    accessToken: parsedEnv.POLAR_ACCESS_TOKEN,
+    webhookSecret: parsedEnv.POLAR_WEBHOOK_SECRET,
+    environment: parsedEnv.POLAR_ENVIRONMENT,
   },
 };
 
