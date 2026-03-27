@@ -1,0 +1,94 @@
+{
+  "id": "<string>",
+  "created_at": "2023-11-07T05:31:56Z",
+  "modified_at": "2023-11-07T05:31:56Z",
+  "trial_interval": "day",
+  "trial_interval_count": 123,
+  "name": "<string>",
+  "description": "<string>",
+  "visibility": "draft",
+  "recurring_interval": "day",
+  "recurring_interval_count": 123,
+  "is_recurring": true,
+  "is_archived": true,
+  "organization_id": "<string>",
+  "metadata": {},
+  "prices": [
+    {
+      "created_at": "2023-11-07T05:31:56Z",
+      "modified_at": "2023-11-07T05:31:56Z",
+      "id": "<string>",
+      "source": "catalog",
+      "amount_type": "<string>",
+      "price_currency": "<string>",
+      "is_archived": true,
+      "product_id": "<string>",
+      "type": "<string>",
+      "recurring_interval": "day",
+      "price_amount": 123,
+      "legacy": true
+    }
+  ],
+  "benefits": [
+    {
+      "id": "<string>",
+      "created_at": "2023-11-07T05:31:56Z",
+      "modified_at": "2023-11-07T05:31:56Z",
+      "type": "<string>",
+      "description": "<string>",
+      "selectable": true,
+      "deletable": true,
+      "organization_id": "<string>",
+      "metadata": {},
+      "properties": {
+        "note": "<string>"
+      }
+    }
+  ],
+  "medias": [
+    {
+      "id": "<string>",
+      "organization_id": "<string>",
+      "name": "<string>",
+      "path": "<string>",
+      "mime_type": "<string>",
+      "size": 123,
+      "storage_version": "<string>",
+      "checksum_etag": "<string>",
+      "checksum_sha256_base64": "<string>",
+      "checksum_sha256_hex": "<string>",
+      "last_modified_at": "2023-11-07T05:31:56Z",
+      "version": "<string>",
+      "service": "<string>",
+      "is_uploaded": true,
+      "created_at": "2023-11-07T05:31:56Z",
+      "size_readable": "<string>",
+      "public_url": "<string>"
+    }
+  ],
+  "attached_custom_fields": [
+    {
+      "custom_field_id": "<string>",
+      "custom_field": {
+        "created_at": "2023-11-07T05:31:56Z",
+        "modified_at": "2023-11-07T05:31:56Z",
+        "id": "<string>",
+        "metadata": {},
+        "type": "<string>",
+        "slug": "<string>",
+        "name": "<string>",
+        "organization_id": "<string>",
+        "properties": {
+          "form_label": "<string>",
+          "form_help_text": "<string>",
+          "form_placeholder": "<string>",
+          "textarea": true,
+          "min_length": 1073741823,
+          "max_length": 1073741823
+        }
+      },
+      "order": 123,
+      "required": true
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "duration": "once",
+      "type": "fixed",
+      "amount": 123,
+      "currency": "<string>",
+      "amounts": {},
+      "created_at": "2023-11-07T05:31:56Z",
+      "modified_at": "2023-11-07T05:31:56Z",
+      "id": "<string>",
+      "metadata": {},
+      "name": "<string>",
+      "code": "<string>",
+      "starts_at": "2023-11-07T05:31:56Z",
+      "ends_at": "2023-11-07T05:31:56Z",
+      "max_redemptions": 123,
+      "redemptions_count": 123,
+      "organization_id": "<string>",
+      "products": [
+        {
+          "metadata": {},
+          "id": "<string>",
+          "created_at": "2023-11-07T05:31:56Z",
+          "modified_at": "2023-11-07T05:31:56Z",
+          "trial_interval": "day",
+          "trial_interval_count": 123,
+          "name": "<string>",
+          "description": "<string>",
+          "visibility": "draft",
+          "recurring_interval": "day",
+          "recurring_interval_count": 123,
+          "is_recurring": true,
+          "is_archived": true,
+          "organization_id": "<string>"
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "total_count": 123,
+    "max_page": 123
+  }
+}

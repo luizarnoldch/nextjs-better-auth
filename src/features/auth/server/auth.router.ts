@@ -3,7 +3,6 @@ import { baseProcedure, createTRPCRouter, protectedProcedure } from "@/trpc/init
 import { signInSchema, signUpSchema, signOutSchema, requestPasswordResetSchema, resetPasswordSchema, changePasswordSchema } from "../schema/auth.schema";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
-import { changePassword } from "better-auth/api";
 
 export const authRouter = createTRPCRouter({
   signIn: baseProcedure

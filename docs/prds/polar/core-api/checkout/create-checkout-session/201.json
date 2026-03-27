@@ -1,0 +1,249 @@
+{
+  "id": "<string>",
+  "created_at": "2023-11-07T05:31:56Z",
+  "modified_at": "2023-11-07T05:31:56Z",
+  "payment_processor": "stripe",
+  "status": "open",
+  "client_secret": "<string>",
+  "url": "<string>",
+  "expires_at": "2023-11-07T05:31:56Z",
+  "success_url": "<string>",
+  "return_url": "<string>",
+  "embed_origin": "<string>",
+  "amount": 123,
+  "discount_amount": 123,
+  "net_amount": 123,
+  "tax_amount": 123,
+  "total_amount": 123,
+  "currency": "<string>",
+  "allow_trial": true,
+  "active_trial_interval": "day",
+  "active_trial_interval_count": 123,
+  "trial_end": "2023-11-07T05:31:56Z",
+  "organization_id": "<string>",
+  "product_id": "<string>",
+  "product_price_id": "<string>",
+  "discount_id": "<string>",
+  "allow_discount_codes": true,
+  "require_billing_address": true,
+  "is_discount_applicable": true,
+  "is_free_product_price": true,
+  "is_payment_required": true,
+  "is_payment_setup_required": true,
+  "is_payment_form_required": true,
+  "customer_id": "<string>",
+  "is_business_customer": true,
+  "customer_name": "<string>",
+  "customer_email": "<string>",
+  "customer_ip_address": "<string>",
+  "customer_billing_name": "<string>",
+  "customer_billing_address": {
+    "country": "AD",
+    "line1": "<string>",
+    "line2": "<string>",
+    "postal_code": "<string>",
+    "city": "<string>",
+    "state": "<string>"
+  },
+  "customer_tax_id": "<string>",
+  "payment_processor_metadata": {},
+  "billing_address_fields": {
+    "country": "required",
+    "state": "required",
+    "city": "required",
+    "postal_code": "required",
+    "line1": "required",
+    "line2": "required"
+  },
+  "trial_interval": "day",
+  "trial_interval_count": 123,
+  "metadata": {},
+  "external_customer_id": "<string>",
+  "products": [
+    {
+      "id": "<string>",
+      "created_at": "2023-11-07T05:31:56Z",
+      "modified_at": "2023-11-07T05:31:56Z",
+      "trial_interval": "day",
+      "trial_interval_count": 123,
+      "name": "<string>",
+      "description": "<string>",
+      "visibility": "draft",
+      "recurring_interval": "day",
+      "recurring_interval_count": 123,
+      "is_recurring": true,
+      "is_archived": true,
+      "organization_id": "<string>",
+      "prices": [
+        {
+          "created_at": "2023-11-07T05:31:56Z",
+          "modified_at": "2023-11-07T05:31:56Z",
+          "id": "<string>",
+          "source": "catalog",
+          "amount_type": "<string>",
+          "price_currency": "<string>",
+          "is_archived": true,
+          "product_id": "<string>",
+          "type": "<string>",
+          "recurring_interval": "day",
+          "price_amount": 123,
+          "legacy": true
+        }
+      ],
+      "benefits": [
+        {
+          "id": "<string>",
+          "created_at": "2023-11-07T05:31:56Z",
+          "modified_at": "2023-11-07T05:31:56Z",
+          "type": "custom",
+          "description": "<string>",
+          "selectable": true,
+          "deletable": true,
+          "organization_id": "<string>"
+        }
+      ],
+      "medias": [
+        {
+          "id": "<string>",
+          "organization_id": "<string>",
+          "name": "<string>",
+          "path": "<string>",
+          "mime_type": "<string>",
+          "size": 123,
+          "storage_version": "<string>",
+          "checksum_etag": "<string>",
+          "checksum_sha256_base64": "<string>",
+          "checksum_sha256_hex": "<string>",
+          "last_modified_at": "2023-11-07T05:31:56Z",
+          "version": "<string>",
+          "service": "<string>",
+          "is_uploaded": true,
+          "created_at": "2023-11-07T05:31:56Z",
+          "size_readable": "<string>",
+          "public_url": "<string>"
+        }
+      ]
+    }
+  ],
+  "product": {
+    "id": "<string>",
+    "created_at": "2023-11-07T05:31:56Z",
+    "modified_at": "2023-11-07T05:31:56Z",
+    "trial_interval": "day",
+    "trial_interval_count": 123,
+    "name": "<string>",
+    "description": "<string>",
+    "visibility": "draft",
+    "recurring_interval": "day",
+    "recurring_interval_count": 123,
+    "is_recurring": true,
+    "is_archived": true,
+    "organization_id": "<string>",
+    "prices": [
+      {
+        "created_at": "2023-11-07T05:31:56Z",
+        "modified_at": "2023-11-07T05:31:56Z",
+        "id": "<string>",
+        "source": "catalog",
+        "amount_type": "<string>",
+        "price_currency": "<string>",
+        "is_archived": true,
+        "product_id": "<string>",
+        "type": "<string>",
+        "recurring_interval": "day",
+        "price_amount": 123,
+        "legacy": true
+      }
+    ],
+    "benefits": [
+      {
+        "id": "<string>",
+        "created_at": "2023-11-07T05:31:56Z",
+        "modified_at": "2023-11-07T05:31:56Z",
+        "type": "custom",
+        "description": "<string>",
+        "selectable": true,
+        "deletable": true,
+        "organization_id": "<string>"
+      }
+    ],
+    "medias": [
+      {
+        "id": "<string>",
+        "organization_id": "<string>",
+        "name": "<string>",
+        "path": "<string>",
+        "mime_type": "<string>",
+        "size": 123,
+        "storage_version": "<string>",
+        "checksum_etag": "<string>",
+        "checksum_sha256_base64": "<string>",
+        "checksum_sha256_hex": "<string>",
+        "last_modified_at": "2023-11-07T05:31:56Z",
+        "version": "<string>",
+        "service": "<string>",
+        "is_uploaded": true,
+        "created_at": "2023-11-07T05:31:56Z",
+        "size_readable": "<string>",
+        "public_url": "<string>"
+      }
+    ]
+  },
+  "product_price": {
+    "created_at": "2023-11-07T05:31:56Z",
+    "modified_at": "2023-11-07T05:31:56Z",
+    "id": "<string>",
+    "source": "catalog",
+    "amount_type": "<string>",
+    "price_currency": "<string>",
+    "is_archived": true,
+    "product_id": "<string>",
+    "type": "<string>",
+    "recurring_interval": "day",
+    "price_amount": 123,
+    "legacy": true
+  },
+  "prices": {},
+  "discount": {
+    "duration": "once",
+    "type": "fixed",
+    "amount": 123,
+    "currency": "<string>",
+    "amounts": {},
+    "id": "<string>",
+    "name": "<string>",
+    "code": "<string>"
+  },
+  "subscription_id": "<string>",
+  "attached_custom_fields": [
+    {
+      "custom_field_id": "<string>",
+      "custom_field": {
+        "created_at": "2023-11-07T05:31:56Z",
+        "modified_at": "2023-11-07T05:31:56Z",
+        "id": "<string>",
+        "metadata": {},
+        "type": "<string>",
+        "slug": "<string>",
+        "name": "<string>",
+        "organization_id": "<string>",
+        "properties": {
+          "form_label": "<string>",
+          "form_help_text": "<string>",
+          "form_placeholder": "<string>",
+          "textarea": true,
+          "min_length": 1073741823,
+          "max_length": 1073741823
+        }
+      },
+      "order": 123,
+      "required": true
+    }
+  ],
+  "customer_metadata": {},
+  "custom_field_data": {},
+  "seats": 123,
+  "min_seats": 123,
+  "max_seats": 123,
+  "locale": "<string>"
+}

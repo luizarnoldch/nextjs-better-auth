@@ -1,0 +1,26 @@
+{
+  "created_at": "2023-11-07T05:31:56Z",
+  "modified_at": "2023-11-07T05:31:56Z",
+  "id": "3c90c3cc-0d44-4b50-8888-8dd25736052a",
+  "status": "pending",
+  "subscription_id": "3c90c3cc-0d44-4b50-8888-8dd25736052a",
+  "order_id": "3c90c3cc-0d44-4b50-8888-8dd25736052a",
+  "customer_id": "3c90c3cc-0d44-4b50-8888-8dd25736052a",
+  "member_id": "3c90c3cc-0d44-4b50-8888-8dd25736052a",
+  "member": {
+    "id": "<string>",
+    "created_at": "2023-11-07T05:31:56Z",
+    "modified_at": "2023-11-07T05:31:56Z",
+    "customer_id": "<string>",
+    "email": "<string>",
+    "name": "Jane Doe",
+    "external_id": "usr_1337",
+    "role": "owner"
+  },
+  "email": "<string>",
+  "customer_email": "<string>",
+  "invitation_token_expires_at": "2023-11-07T05:31:56Z",
+  "claimed_at": "2023-11-07T05:31:56Z",
+  "revoked_at": "2023-11-07T05:31:56Z",
+  "seat_metadata": {}
+}
