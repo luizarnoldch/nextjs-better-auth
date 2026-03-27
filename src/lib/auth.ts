@@ -4,10 +4,10 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { nextCookies } from "better-auth/next-js";
 
 import prisma from "./prisma";
-import { emailAndPasswordOptions } from "./auth/email-password/email";
-import { emailVerificationOptions } from "./auth/email-password/verification";
 import { hooksOptions } from "./auth/hooks/createMiddleware";
 import { polarPluginOptions } from "./auth/plugins/polar/config";
+import { emailAndPasswordOptions } from "./auth/email-password/email";
+import { emailVerificationOptions } from "./auth/email-password/verification";
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
