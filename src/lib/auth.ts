@@ -3,29 +3,18 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { nextCookies } from "better-auth/next-js";
 
 import prisma from "./prisma";
-import { sendVerificationEmail } from "./resend";
+import { emailAndPasswordOptions } from "./auth/email-password/email";
+import { emailVerificationOptions } from "./auth/email-password/verification";
+import { hooksOptions } from "./auth/hooks/createMiddleware";
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
     provider: "postgresql",
   }),
-  emailAndPassword: {
-    enabled: true,
-    autoSignIn: true,
-  },
-  emailVerification: {
-    sendVerificationEmail: async (request) => {
-      const safeRequest = {
-        ...request,
-        user: {
-          ...request.user,
-          image: request.user.image ?? null,
-        },
-      };
-      await sendVerificationEmail(safeRequest);
-    },
-  },
+  emailAndPassword: emailAndPasswordOptions,
+  emailVerification: emailVerificationOptions,
   plugins: [nextCookies()],
+  hooks: hooksOptions,
   advanced: {
     database: {
       generateId: false,

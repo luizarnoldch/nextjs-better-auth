@@ -22,3 +22,22 @@ export type SignUpType = z.infer<typeof signUpSchema>;
 
 export const signOutSchema = z.object({});
 export type SignOutType = z.infer<typeof signOutSchema>;
+
+export const requestPasswordResetSchema = z.object({
+  email: z.email({ message: "Invalid email address" }),
+  redirectTo: z.url().optional(),
+});
+export type RequestPasswordResetType = z.infer<typeof requestPasswordResetSchema>;
+
+export const resetPasswordSchema = z.object({
+  token: z.string(),
+  newPassword: z.string().min(8, { message: "Password must be at least 8 characters" }),
+});
+export type ResetPasswordType = z.infer<typeof resetPasswordSchema>;
+
+export const changePasswordSchema = z.object({
+  currentPassword: z.string().min(1, { message: "Current password is required" }),
+  newPassword: z.string().min(8, { message: "New password must be at least 8 characters" }),
+  revokeOtherSessions: z.boolean().optional(),
+});
+export type ChangePasswordType = z.infer<typeof changePasswordSchema>;
