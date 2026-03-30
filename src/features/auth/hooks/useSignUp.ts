@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useTRPC } from "@/trpc/client";
-import { useMutation } from "@tanstack/react-query";
-import { useForm } from "@tanstack/react-form";
-import { toast } from "sonner";
-import { signUpSchema, type SignUpType } from "../schema/auth.schema";
-import { TRPCClientErrorLike } from "@trpc/client";
+import { useTRPC } from '@/trpc/client';
+import { useMutation } from '@tanstack/react-query';
+import { useForm } from '@tanstack/react-form';
+import { toast } from 'sonner';
+import { signUpSchema, type SignUpType } from '../schema/auth.schema';
+import { TRPCClientErrorLike } from '@trpc/client';
 
 type UseSignUpProps = {
   onSuccess?: () => void;
@@ -18,21 +18,21 @@ const useSignUp = ({ onSuccess, onError }: UseSignUpProps = {}) => {
   const mutation = useMutation(
     trpc.auth.signUp.mutationOptions({
       onSuccess: () => {
-        toast.success("Account created successfully");
+        toast.success('Account created successfully');
         onSuccess?.();
       },
       onError: (error) => {
-        toast.error(error.message || "Failed to sign up");
+        toast.error(error.message || 'Failed to sign up');
         onError?.(error);
       },
-    })
+    }),
   );
 
   const form = useForm({
     defaultValues: {
-      name: "",
-      email: "",
-      password: "",
+      name: '',
+      email: '',
+      password: '',
       image: null,
       rememberMe: true,
     } as SignUpType,

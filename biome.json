@@ -1,0 +1,35 @@
+{
+  "formatter": {
+    "indentStyle": "space",
+    "lineWidth": 100
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "lineWidth": 120
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": false
+    }
+  },
+  "files": {
+    "includes": [
+      "prisma/**/*.js",
+      "prisma/**/*.ts",
+      "src/**/*.js",
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "test/**/*.js",
+      "test/**/*.ts",
+      "test/**/*.tsx",
+      "!**/*.min.js",
+      "!**/*.min.ts",
+      "!**/*.min.tsx"
+    ]
+  },
+  "linter": {
+    "includes": ["**", "!test/**"]
+  }
+}

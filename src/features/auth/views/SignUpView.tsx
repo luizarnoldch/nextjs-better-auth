@@ -1,7 +1,5 @@
-import { AuthSignUpForm } from "../components/AuthSignUpForm";
+import { AuthSignUpForm } from '../components/AuthSignUpForm';
 
 export default function SignUpView() {
-  return (
-    <AuthSignUpForm />
-  );
+  return <AuthSignUpForm />;
 }

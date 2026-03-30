@@ -1,4 +1,4 @@
-import z from "zod";
+import z from 'zod';
 
 const envSchema = z.object({
   // Database
@@ -6,14 +6,12 @@ const envSchema = z.object({
   DIRECT_URL: z.string().optional(),
 
   // App
-  NODE_ENV: z
-    .enum(["development", "test", "production"])
-    .default("development"),
-  NEXT_PUBLIC_APP_URL: z.string().optional().default("http://localhost:3000"),
+  NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
+  NEXT_PUBLIC_APP_URL: z.string().optional().default('http://localhost:3000'),
 
   // Better Auth
   BETTER_AUTH_SECRET: z.string().optional(),
-  BETTER_AUTH_URL: z.string().optional().default("http://localhost:3000"),
+  BETTER_AUTH_URL: z.string().optional().default('http://localhost:3000'),
 
   // Storage (Minio/S3/AWS) - make them optional group or individual
   MINIO_PORT: z.string().optional(),
@@ -29,7 +27,8 @@ const envSchema = z.object({
   // Polar
   POLAR_ACCESS_TOKEN: z.string(),
   POLAR_WEBHOOK_SECRET: z.string().optional(),
-  POLAR_ENVIRONMENT: z.enum(["production", "sandbox"]).default("sandbox"),
+  POLAR_ORGANIZATION_ID: z.string(),
+  POLAR_ENVIRONMENT: z.enum(['production', 'sandbox']).default('sandbox'),
 });
 
 // Parse and validate
@@ -54,16 +53,17 @@ const config = {
     consolePort: Number(parsedEnv.MINIO_CONSOLE_PORT) || 9001,
     rootUser: parsedEnv.MINIO_ROOT_USER,
     rootPassword: parsedEnv.MINIO_ROOT_PASSWORD,
-    serverUrl: parsedEnv.MINIO_SERVER_URL || "localhost",
-    useSsl: parsedEnv.MINIO_USE_SSL === "true",
+    serverUrl: parsedEnv.MINIO_SERVER_URL || 'localhost',
+    useSsl: parsedEnv.MINIO_USE_SSL === 'true',
     browserRedirectUrl: parsedEnv.MINIO_BROWSER_REDIRECT_URL,
-    region: parsedEnv.MINIO_REGION || "us-east-1",
+    region: parsedEnv.MINIO_REGION || 'us-east-1',
     bucketName: parsedEnv.MINIO_BUCKET_NAME,
   },
 
   polar: {
     accessToken: parsedEnv.POLAR_ACCESS_TOKEN,
     webhookSecret: parsedEnv.POLAR_WEBHOOK_SECRET,
+    organizationId: parsedEnv.POLAR_ORGANIZATION_ID,
     environment: parsedEnv.POLAR_ENVIRONMENT,
   },
 };

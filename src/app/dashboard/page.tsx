@@ -1,11 +1,7 @@
-import UserProfileView from "@/components/modules/user/templates/user-profile-view"
+import AuthUpdateProfileForm from '@/features/auth/components/AuthUpdateProfileForm';
 
-type Props = {}
+const DashboardPage = () => {
+  return <AuthUpdateProfileForm />;
+};
 
-const DashboardPage = (props: Props) => {
-  return (
-    <UserProfileView />
-  )
-}
-
-export default DashboardPage
+export default DashboardPage;

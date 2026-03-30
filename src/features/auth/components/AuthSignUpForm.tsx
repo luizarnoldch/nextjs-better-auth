@@ -1,34 +1,22 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { Loader2 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import Link from 'next/link';
+import { Loader2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Field,
-  FieldContent,
-  FieldError,
-  FieldLabel,
-} from "@/components/ui/field";
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Field, FieldContent, FieldError, FieldLabel } from '@/components/ui/field';
 
-import useSignUp from "../hooks/useSignUp";
+import useSignUp from '../hooks/useSignUp';
 
 export const AuthSignUpForm = () => {
   const router = useRouter();
   const { form, isPending } = useSignUp({
     onSuccess: () => {
-      router.push("/sign-in");
+      router.push('/sign-in');
     },
   });
 
@@ -36,9 +24,7 @@ export const AuthSignUpForm = () => {
     <Card className="w-full">
       <CardHeader>
         <CardTitle className="text-lg md:text-xl">Sign Up</CardTitle>
-        <CardDescription className="text-xs md:text-sm">
-          Enter your information to create an account
-        </CardDescription>
+        <CardDescription className="text-xs md:text-sm">Enter your information to create an account</CardDescription>
       </CardHeader>
       <CardContent>
         <form
@@ -119,30 +105,18 @@ export const AuthSignUpForm = () => {
                   <Checkbox
                     id={field.name}
                     checked={field.state.value}
-                    onCheckedChange={(checked) =>
-                      field.handleChange(checked === true)
-                    }
+                    onCheckedChange={(checked) => field.handleChange(checked === true)}
                   />
                 </FieldContent>
-                <FieldLabel className="leading-none py-0.5">
-                  Remember me
-                </FieldLabel>
+                <FieldLabel className="leading-none py-0.5">Remember me</FieldLabel>
               </Field>
             )}
           />
           <form.Subscribe
             selector={(state) => [state.canSubmit, state.isSubmitting]}
             children={([canSubmit, isSubmitting]) => (
-              <Button
-                type="submit"
-                className="w-full"
-                disabled={!canSubmit || isSubmitting || isPending}
-              >
-                {isSubmitting || isPending ? (
-                  <Loader2 size={16} className="animate-spin" />
-                ) : (
-                  "Create an account"
-                )}
+              <Button type="submit" className="w-full" disabled={!canSubmit || isSubmitting || isPending}>
+                {isSubmitting || isPending ? <Loader2 size={16} className="animate-spin" /> : 'Create an account'}
               </Button>
             )}
           />
@@ -150,7 +124,7 @@ export const AuthSignUpForm = () => {
       </CardContent>
       <CardFooter className="flex flex-col">
         <div className="text-center text-sm py-4">
-          Already have an account?{" "}
+          Already have an account?{' '}
           <Link href="/sign-in" className="underline underline-offset-4">
             Sign in
           </Link>

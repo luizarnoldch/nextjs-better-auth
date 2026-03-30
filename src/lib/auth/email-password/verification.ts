@@ -1,10 +1,10 @@
-import { betterAuth } from "better-auth";
-import { sendVerificationEmail } from "@/lib/resend";
+import { betterAuth } from 'better-auth';
+import { sendVerificationEmail } from '@/lib/resend';
 
 /**
  * Configuration for email verification logic.
  */
-export const emailVerificationOptions: Parameters<typeof betterAuth>[0]["emailVerification"] = {
+export const emailVerificationOptions: Parameters<typeof betterAuth>[0]['emailVerification'] = {
   autoSignInAfterVerification: false,
   expiresIn: 60 * 60 * 24,
 

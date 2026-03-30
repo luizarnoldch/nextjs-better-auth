@@ -1,13 +1,11 @@
 {
-  "detail": [
-    {
-      "loc": [
-        "<string>"
-      ],
-      "msg": "<string>",
-      "type": "<string>",
-      "input": "<unknown>",
-      "ctx": {}
-    }
-  ]
+	"detail": [
+		{
+			"loc": ["<string>"],
+			"msg": "<string>",
+			"type": "<string>",
+			"input": "<unknown>",
+			"ctx": {}
+		}
+	]
 }

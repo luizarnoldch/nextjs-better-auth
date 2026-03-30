@@ -1,0 +1,202 @@
+{
+  "result": {
+    "items": [
+      {
+        "id": "35a89921-b23a-4c70-92c2-7f5d60cdb0bf",
+        "createdAt": "2026-03-28T00:52:11.463Z",
+        "modifiedAt": "2026-03-28T01:42:36.798Z",
+        "trialInterval": "month",
+        "trialIntervalCount": 1,
+        "name": "Independiente",
+        "description": null,
+        "visibility": "public",
+        "recurringInterval": "year",
+        "recurringIntervalCount": 1,
+        "isRecurring": true,
+        "isArchived": false,
+        "organizationId": "cba82639-1b03-43c2-8b3c-114677d043ba",
+        "metadata": {
+          "max_gb_storage": "5"
+        },
+        "prices": [
+          {
+            "createdAt": "2026-03-28T00:58:56.379Z",
+            "modifiedAt": null,
+            "id": "94f1dd0e-e1c5-4986-ac89-7e21ca79fadf",
+            "source": "catalog",
+            "amountType": "fixed",
+            "priceCurrency": "pen",
+            "taxBehavior": null,
+            "isArchived": false,
+            "productId": "35a89921-b23a-4c70-92c2-7f5d60cdb0bf",
+            "priceAmount": 42000
+          }
+        ],
+        "benefits": [
+          {
+            "id": "0dfa0f51-4e03-47fa-b080-5e44f66d4803",
+            "createdAt": "2026-03-28T00:20:23.755Z",
+            "modifiedAt": null,
+            "type": "custom",
+            "description": "expedientes ilimitados",
+            "selectable": true,
+            "deletable": true,
+            "organizationId": "cba82639-1b03-43c2-8b3c-114677d043ba",
+            "metadata": {},
+            "properties": {
+              "note": null
+            }
+          },
+          {
+            "id": "2b17707d-4be8-4599-abdb-1a8faca089e5",
+            "createdAt": "2026-03-28T00:43:28.934Z",
+            "modifiedAt": null,
+            "type": "custom",
+            "description": "5 GB de almacenamiento",
+            "selectable": true,
+            "deletable": true,
+            "organizationId": "cba82639-1b03-43c2-8b3c-114677d043ba",
+            "metadata": {},
+            "properties": {
+              "note": null
+            }
+          }
+        ],
+        "medias": [],
+        "attachedCustomFields": []
+      },
+      {
+        "id": "260ea636-e7ac-452e-ae4c-8c0db35365ca",
+        "createdAt": "2026-03-28T00:23:48.517Z",
+        "modifiedAt": "2026-03-28T01:42:47.720Z",
+        "trialInterval": "month",
+        "trialIntervalCount": 1,
+        "name": "Independiente",
+        "description": null,
+        "visibility": "public",
+        "recurringInterval": "month",
+        "recurringIntervalCount": 1,
+        "isRecurring": true,
+        "isArchived": false,
+        "organizationId": "cba82639-1b03-43c2-8b3c-114677d043ba",
+        "metadata": {
+          "max_gb_storage": "5"
+        },
+        "prices": [
+          {
+            "createdAt": "2026-03-28T00:58:02.025Z",
+            "modifiedAt": null,
+            "id": "53cad27d-4727-4b99-843b-66459e5bcabd",
+            "source": "catalog",
+            "amountType": "fixed",
+            "priceCurrency": "pen",
+            "taxBehavior": null,
+            "isArchived": false,
+            "productId": "260ea636-e7ac-452e-ae4c-8c0db35365ca",
+            "priceAmount": 4000
+          }
+        ],
+        "benefits": [
+          {
+            "id": "0dfa0f51-4e03-47fa-b080-5e44f66d4803",
+            "createdAt": "2026-03-28T00:20:23.755Z",
+            "modifiedAt": null,
+            "type": "custom",
+            "description": "expedientes ilimitados",
+            "selectable": true,
+            "deletable": true,
+            "organizationId": "cba82639-1b03-43c2-8b3c-114677d043ba",
+            "metadata": {},
+            "properties": {
+              "note": null
+            }
+          },
+          {
+            "id": "2b17707d-4be8-4599-abdb-1a8faca089e5",
+            "createdAt": "2026-03-28T00:43:28.934Z",
+            "modifiedAt": null,
+            "type": "custom",
+            "description": "5 GB de almacenamiento",
+            "selectable": true,
+            "deletable": true,
+            "organizationId": "cba82639-1b03-43c2-8b3c-114677d043ba",
+            "metadata": {},
+            "properties": {
+              "note": null
+            }
+          }
+        ],
+        "medias": [],
+        "attachedCustomFields": []
+      },
+      {
+        "id": "16643832-904e-41f7-b368-69a19d1f5f62",
+        "createdAt": "2026-03-28T00:16:57.855Z",
+        "modifiedAt": "2026-03-28T00:47:47.634Z",
+        "trialInterval": null,
+        "trialIntervalCount": null,
+        "name": "Esencial",
+        "description": null,
+        "visibility": "public",
+        "recurringInterval": "month",
+        "recurringIntervalCount": 1,
+        "isRecurring": true,
+        "isArchived": false,
+        "organizationId": "cba82639-1b03-43c2-8b3c-114677d043ba",
+        "metadata": {
+          "max_gb_storage": "0.5",
+          "max_case_number": "250"
+        },
+        "prices": [
+          {
+            "createdAt": "2026-03-28T00:16:57.862Z",
+            "modifiedAt": null,
+            "id": "d31b0906-659b-4810-9c19-318d1223c880",
+            "source": "catalog",
+            "amountType": "free",
+            "priceCurrency": "pen",
+            "taxBehavior": null,
+            "isArchived": false,
+            "productId": "16643832-904e-41f7-b368-69a19d1f5f62"
+          }
+        ],
+        "benefits": [
+          {
+            "id": "867f2eac-abc1-49a4-8f09-eb1411bf4fc1",
+            "createdAt": "2026-03-28T00:30:51.604Z",
+            "modifiedAt": null,
+            "type": "custom",
+            "description": "250 expedientes",
+            "selectable": true,
+            "deletable": true,
+            "organizationId": "cba82639-1b03-43c2-8b3c-114677d043ba",
+            "metadata": {},
+            "properties": {
+              "note": null
+            }
+          },
+          {
+            "id": "0cf0f54d-7d61-43b6-abc2-cfa18ab15a3c",
+            "createdAt": "2026-03-28T00:47:02.781Z",
+            "modifiedAt": null,
+            "type": "custom",
+            "description": "0.5 GB de almacenamiento",
+            "selectable": true,
+            "deletable": true,
+            "organizationId": "cba82639-1b03-43c2-8b3c-114677d043ba",
+            "metadata": {},
+            "properties": {
+              "note": null
+            }
+          }
+        ],
+        "medias": [],
+        "attachedCustomFields": []
+      }
+    ],
+    "pagination": {
+      "totalCount": 3,
+      "maxPage": 1
+    }
+  }
+}

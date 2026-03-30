@@ -3,18 +3,21 @@ import { Polar } from "@polar-sh/sdk";
 const polar = new Polar();
 
 async function run() {
-  const result = await polar.customerPortal.orders.update({
-    customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
-  }, {
-    id: "<value>",
-    customerOrderUpdate: {
-      billingAddress: {
-        country: "US",
-      },
-    },
-  });
+	const result = await polar.customerPortal.orders.update(
+		{
+			customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
+		},
+		{
+			id: "<value>",
+			customerOrderUpdate: {
+				billingAddress: {
+					country: "US",
+				},
+			},
+		},
+	);
 
-  console.log(result);
+	console.log(result);
 }
 
 run();

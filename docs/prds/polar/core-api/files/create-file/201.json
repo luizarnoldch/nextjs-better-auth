@@ -1,32 +1,32 @@
 {
-  "id": "<string>",
-  "organization_id": "<string>",
-  "name": "<string>",
-  "path": "<string>",
-  "mime_type": "<string>",
-  "size": 123,
-  "storage_version": "<string>",
-  "checksum_etag": "<string>",
-  "checksum_sha256_base64": "<string>",
-  "checksum_sha256_hex": "<string>",
-  "last_modified_at": "2023-11-07T05:31:56Z",
-  "upload": {
-    "id": "<string>",
-    "path": "<string>",
-    "parts": [
-      {
-        "number": 123,
-        "chunk_start": 123,
-        "chunk_end": 123,
-        "url": "<string>",
-        "expires_at": "2023-11-07T05:31:56Z",
-        "checksum_sha256_base64": "<string>",
-        "headers": {}
-      }
-    ]
-  },
-  "version": "<string>",
-  "service": "downloadable",
-  "size_readable": "<string>",
-  "is_uploaded": false
+	"id": "<string>",
+	"organization_id": "<string>",
+	"name": "<string>",
+	"path": "<string>",
+	"mime_type": "<string>",
+	"size": 123,
+	"storage_version": "<string>",
+	"checksum_etag": "<string>",
+	"checksum_sha256_base64": "<string>",
+	"checksum_sha256_hex": "<string>",
+	"last_modified_at": "2023-11-07T05:31:56Z",
+	"upload": {
+		"id": "<string>",
+		"path": "<string>",
+		"parts": [
+			{
+				"number": 123,
+				"chunk_start": 123,
+				"chunk_end": 123,
+				"url": "<string>",
+				"expires_at": "2023-11-07T05:31:56Z",
+				"checksum_sha256_base64": "<string>",
+				"headers": {}
+			}
+		]
+	},
+	"version": "<string>",
+	"service": "downloadable",
+	"size_readable": "<string>",
+	"is_uploaded": false
 }

@@ -1,34 +1,22 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { Loader2 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import Link from 'next/link';
+import { Loader2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Field,
-  FieldContent,
-  FieldError,
-  FieldLabel,
-} from "@/components/ui/field";
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Field, FieldContent, FieldError, FieldLabel } from '@/components/ui/field';
 
-import useSignIn from "../hooks/useSignIn";
+import useSignIn from '../hooks/useSignIn';
 
 export const AuthSignInForm = () => {
   const router = useRouter();
   const { form, isPending } = useSignIn({
     onSuccess: () => {
-      router.push("/dashboard");
+      router.push('/dashboard');
       router.refresh();
     },
   });
@@ -77,10 +65,7 @@ export const AuthSignInForm = () => {
               <Field>
                 <div className="flex items-center">
                   <FieldLabel>Password</FieldLabel>
-                  <Link
-                    href="#"
-                    className="ml-auto inline-block text-sm underline"
-                  >
+                  <Link href="#" className="ml-auto inline-block text-sm underline">
                     Forgot your password?
                   </Link>
                 </div>
@@ -109,30 +94,18 @@ export const AuthSignInForm = () => {
                   <Checkbox
                     id={field.name}
                     checked={field.state.value}
-                    onCheckedChange={(checked) =>
-                      field.handleChange(checked === true)
-                    }
+                    onCheckedChange={(checked) => field.handleChange(checked === true)}
                   />
                 </FieldContent>
-                <FieldLabel className="leading-none py-0.5">
-                  Remember me
-                </FieldLabel>
+                <FieldLabel className="leading-none py-0.5">Remember me</FieldLabel>
               </Field>
             )}
           />
           <form.Subscribe
             selector={(state) => [state.canSubmit, state.isSubmitting]}
             children={([canSubmit, isSubmitting]) => (
-              <Button
-                type="submit"
-                className="w-full"
-                disabled={!canSubmit || isSubmitting || isPending}
-              >
-                {isSubmitting || isPending ? (
-                  <Loader2 size={16} className="animate-spin" />
-                ) : (
-                  "Login"
-                )}
+              <Button type="submit" className="w-full" disabled={!canSubmit || isSubmitting || isPending}>
+                {isSubmitting || isPending ? <Loader2 size={16} className="animate-spin" /> : 'Login'}
               </Button>
             )}
           />
@@ -140,7 +113,7 @@ export const AuthSignInForm = () => {
       </CardContent>
       <CardFooter className="flex flex-col">
         <div className="text-center text-sm py-4">
-          Don't have an account?{" "}
+          Don't have an account?{' '}
           <Link href="/sign-up" className="underline underline-offset-4">
             Sign up
           </Link>

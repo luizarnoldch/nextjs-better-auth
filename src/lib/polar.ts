@@ -1,9 +1,9 @@
-import { Polar } from "@polar-sh/sdk"
-import config from "./config"
+import { Polar } from '@polar-sh/sdk';
+import config from './config';
 
-const polarClient = new Polar({
+const polar = new Polar({
   accessToken: config.polar.accessToken,
-  server: config.polar.environment as "production" | "sandbox"
-})
+  server: config.polar.environment === 'production' ? 'production' : 'sandbox',
+});
 
-export default polarClient
+export default polar;

@@ -3,12 +3,12 @@ import { Polar } from "@polar-sh/sdk";
 const polar = new Polar();
 
 async function run() {
-  const result = await polar.customerPortal.licenseKeys.validate({
-    key: "<key>",
-    organizationId: "<value>",
-  });
+	const result = await polar.customerPortal.licenseKeys.validate({
+		key: "<key>",
+		organizationId: "<value>",
+	});
 
-  console.log(result);
+	console.log(result);
 }
 
 run();

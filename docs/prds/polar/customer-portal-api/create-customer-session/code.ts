@@ -1,15 +1,15 @@
 import { Polar } from "@polar-sh/sdk";
 
 const polar = new Polar({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+	accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
 });
 
 async function run() {
-  const result = await polar.customerSessions.create({
-    externalCustomerId: "<id>",
-  });
+	const result = await polar.customerSessions.create({
+		externalCustomerId: "<id>",
+	});
 
-  console.log(result);
+	console.log(result);
 }
 
 run();
