@@ -4,17 +4,17 @@ import type { WebhookOrderRefundedPayload } from '@polar-sh/sdk/models/component
 import type { WebhookOrderUpdatedPayload } from '@polar-sh/sdk/models/components/webhookorderupdatedpayload.js';
 
 export const onOrderCreated = async (payload: WebhookOrderCreatedPayload) => {
-  console.log('Order created', payload);
+  // console.log('Order created', payload);
 };
 
 export const onOrderUpdated = async (payload: WebhookOrderUpdatedPayload) => {
-  console.log('Order updated', payload);
+  // console.log('Order updated', payload);
 };
 
 export const onOrderPaid = async (payload: WebhookOrderPaidPayload) => {
-  console.log('Order paid', payload);
+  // console.log('Order paid', payload);
 };
 
 export const onOrderRefunded = async (payload: WebhookOrderRefundedPayload) => {
-  console.log('Order refunded', payload);
+  // console.log('Order refunded', payload);
 };

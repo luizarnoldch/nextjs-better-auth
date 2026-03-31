@@ -2,9 +2,9 @@ import type { WebhookRefundCreatedPayload } from '@polar-sh/sdk/models/component
 import type { WebhookRefundUpdatedPayload } from '@polar-sh/sdk/models/components/webhookrefundupdatedpayload.js';
 
 export const onRefundCreated = async (payload: WebhookRefundCreatedPayload) => {
-  console.log('Refund created', payload);
+  // console.log('Refund created', payload);
 };
 
 export const onRefundUpdated = async (payload: WebhookRefundUpdatedPayload) => {
-  console.log('Refund updated', payload);
+  // console.log('Refund updated', payload);
 };

@@ -26,7 +26,7 @@ const envSchema = z.object({
 
   // Polar
   POLAR_ACCESS_TOKEN: z.string(),
-  POLAR_WEBHOOK_SECRET: z.string().optional(),
+  POLAR_WEBHOOK_SECRET: z.string(),
   POLAR_ORGANIZATION_ID: z.string(),
   POLAR_ENVIRONMENT: z.enum(['production', 'sandbox']).default('sandbox'),
 });

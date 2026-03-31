@@ -1,10 +1,21 @@
-import polarClient from '@/lib/polar';
-import config from '@/lib/config';
-import { checkout, portal, usage, webhooks, type polar } from '@polar-sh/better-auth';
-import onPayload from './on_payload';
-import { onCheckoutCreated, onCheckoutUpdated } from './on_checkout';
-import { onOrderCreated, onOrderUpdated, onOrderPaid, onOrderRefunded } from './on_order';
-import { onRefundCreated, onRefundUpdated } from './on_refund';
+import polarClient from "@/lib/polar";
+import config from "@/lib/config";
+import {
+  checkout,
+  portal,
+  usage,
+  webhooks,
+  type polar,
+} from "@polar-sh/better-auth";
+import onPayload from "./on_payload";
+import { onCheckoutCreated, onCheckoutUpdated } from "./on_checkout";
+import {
+  onOrderCreated,
+  onOrderUpdated,
+  onOrderPaid,
+  onOrderRefunded,
+} from "./on_order";
+import { onRefundCreated, onRefundUpdated } from "./on_refund";
 import {
   onSubscriptionCreated,
   onSubscriptionUpdated,
@@ -12,17 +23,22 @@ import {
   onSubscriptionCanceled,
   onSubscriptionRevoked,
   onSubscriptionUncanceled,
-} from './on_subcription';
-import { onProductCreated, onProductUpdated } from './on_product';
-import { onOrganizationUpdated } from './on_organization';
+} from "./on_subcription";
+import { onProductCreated, onProductUpdated } from "./on_product";
+import { onOrganizationUpdated } from "./on_organization";
 import {
   onBenefitCreated,
   onBenefitUpdated,
   onBenefitGrantCreated,
   onBenefitGrantUpdated,
   onBenefitGrantRevoked,
-} from './on_benefit';
-import { onCustomerCreated, onCustomerUpdated, onCustomerDeleted, onCustomerStateChanged } from './on_customer';
+} from "./on_benefit";
+import {
+  onCustomerCreated,
+  onCustomerUpdated,
+  onCustomerDeleted,
+  onCustomerStateChanged,
+} from "./on_customer";
 
 export const polarPluginOptions: Parameters<typeof polar>[0] = {
   client: polarClient,
@@ -30,7 +46,7 @@ export const polarPluginOptions: Parameters<typeof polar>[0] = {
   getCustomerCreateParams: async ({ user }) => {
     return {
       metadata: {
-        name: user.name ?? '',
+        name: user.name ?? "",
         myCustomProperty: 123,
       },
     };
@@ -44,7 +60,7 @@ export const polarPluginOptions: Parameters<typeof polar>[0] = {
     portal(),
     usage(),
     webhooks({
-      secret: config.polar.webhookSecret ?? '',
+      secret: config.polar.webhookSecret ?? "",
       onPayload,
       onCheckoutCreated,
       onCheckoutUpdated,

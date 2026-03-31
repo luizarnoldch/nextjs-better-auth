@@ -1,7 +1,6 @@
 import config from '@/lib/config';
 import s3Client from '@/lib/minio';
 import prisma from '@/lib/prisma';
-import { upsertPolarProducts } from './upsert-products';
 
 async function _insertPublicAssets(_bucketName: string) {
   return;
@@ -48,9 +47,6 @@ async function createBucket(bucketName: string, bucketRegion: string) {
 
 async function main() {
   await createBucket(config.minio.bucketName, config.minio.region);
-
-  await upsertPolarProducts();
-
   try {
     const policy = getPublicReadPolicy(config.minio.bucketName);
     await s3Client.setBucketPolicy(config.minio.bucketName, policy);
