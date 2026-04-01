@@ -778,6 +778,8 @@
 }
 ```
 
+Note: Subscription Updated & Subscription Canceled only change the `timestamp` and `type`
+
 # Customer State Changed
 
 ```json
@@ -861,3 +863,7 @@
   }
 }
 ```
+
+Note: Satate Change at start and end change the `cancel_at_period_end` (false/true), `canceled_at` (timestamp) and `ends_at` (timestamp).
+
+Note: Subscription Update at start and end change the `cancel_at_period_end` (false/true), `canceled_at` (timestamp) and `ends_at` (timestamp).

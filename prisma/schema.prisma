@@ -88,7 +88,7 @@ model Subscription {
   isFree                 Boolean  @default(false)
   isRecurring            Boolean  @default(false)
   isArchived             Boolean  @default(false)
-  polarExternalId        String?  @unique
+  polarProductId         String?  @unique
   createdAt              DateTime @default(now())
   updatedAt              DateTime @updatedAt
 
@@ -99,15 +99,28 @@ model Subscription {
 }
 
 model UserSubscription {
-  id             String       @id @default(uuid())
-  userId         String
-  subscriptionId String
-  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
-  subscription   Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
-  createdAt      DateTime     @default(now())
-  updatedAt      DateTime     @updatedAt
-  endAt          DateTime?
+  id                  String       @id @default(uuid())
+  userId              String
+  subscriptionId      String
+  polarSubscriptionId String?
+  user                User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subscription        Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+  state               String       @default("pending")
+  cancelAtPeriodEnd   Boolean      @default(false)
+  trialStartedAt      DateTime?
+  trialEndedAt        DateTime?
+  startedAt           DateTime?
+  canceledAt          DateTime?
+  revokedAt           DateTime?
+  createdAt           DateTime     @default(now())
+  updatedAt           DateTime     @default(now()) @updatedAt
+  endsAt              DateTime?
+  endedAt             DateTime?
 
-  @@unique([userId, subscriptionId])
+  @@unique([userId, subscriptionId, polarSubscriptionId])
+  @@index([polarSubscriptionId])
+  @@index([userId, state, endedAt])
+  @@index([userId, subscriptionId, endedAt])
+  @@index([userId, createdAt])
   @@map("user_subscription")
 }

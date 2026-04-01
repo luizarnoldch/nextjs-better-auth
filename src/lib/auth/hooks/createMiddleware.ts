@@ -18,20 +18,25 @@ async function assignDefaultFreeSubscription(userId: string) {
     return;
   }
 
-  await prisma.userSubscription.upsert({
+  const currentFree = await prisma.userSubscription.findFirst({
     where: {
-      userId_subscriptionId: {
-        userId,
-        subscriptionId: freeSubscriptions.id,
-      },
-    },
-    update: {
-      endAt: null,
-    },
-    create: {
       userId,
       subscriptionId: freeSubscriptions.id,
-      endAt: null,
+      state: "active",
+    },
+    select: { id: true },
+  });
+
+  if (currentFree) {
+    return;
+  }
+
+  await prisma.userSubscription.create({
+    data: {
+      userId,
+      subscriptionId: freeSubscriptions.id,
+      state: "active",
+      startedAt: new Date(),
     },
   });
 }

@@ -23,7 +23,7 @@ import {
   onSubscriptionCanceled,
   onSubscriptionRevoked,
   onSubscriptionUncanceled,
-} from "./on_subcription";
+} from "./on_subscription";
 import { onProductCreated, onProductUpdated } from "./on_product";
 import { onOrganizationUpdated } from "./on_organization";
 import {

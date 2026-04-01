@@ -25,7 +25,7 @@ async function main() {
 
   for (const product of polarProducts.result.items ?? []) {
     await prisma.subscription.upsert({
-      where: { polarExternalId: product.id },
+      where: { polarProductId: product.id },
       update: {
         name: product.name,
         description: product.description,
@@ -57,7 +57,7 @@ async function main() {
         isFree: isFreeProdct(product.prices),
         isRecurring: product.isRecurring,
         isArchived: product.isArchived,
-        polarExternalId: product.id,
+        polarProductId: product.id,
         polarOrganizationId: product.organizationId,
       },
     });

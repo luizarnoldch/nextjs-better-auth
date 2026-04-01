@@ -16,7 +16,13 @@ export default async function PaymentsLayout({ children }: { children: React.Rea
   const user = session.user
 
   const subscription = await prisma.userSubscription.findFirst({
-    where: { userId: user.id },
+    where: {
+      userId: user.id,
+      state: "active",
+    },
+    orderBy: {
+      startedAt: "desc",
+    },
     include: { subscription: true },
   })
 
