@@ -1,10 +1,10 @@
-import { betterAuth } from "better-auth";
-import { hashPassword, verifyPassword } from "./password";
+import { betterAuth } from 'better-auth';
+import { hashPassword, verifyPassword } from './password';
 
 /**
  * Configuration for email and password authentication.
  */
-export const emailAndPasswordOptions: Parameters<typeof betterAuth>[0]["emailAndPassword"] = {
+export const emailAndPasswordOptions: Parameters<typeof betterAuth>[0]['emailAndPassword'] = {
   enabled: true,
   requireEmailVerification: false, // Set to true to force verification before login
   autoSignIn: true,

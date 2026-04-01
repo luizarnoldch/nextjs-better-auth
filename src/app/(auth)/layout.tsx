@@ -1,8 +1,7 @@
+import Image from 'next/image';
+import Link from 'next/link';
 
-import Image from "next/image";
-import Link from "next/link";
-
-import { GalleryVerticalEndIcon } from "lucide-react";
+import { GalleryVerticalEndIcon } from 'lucide-react';
 
 export default function AuthLayout({
   children,
@@ -21,9 +20,7 @@ export default function AuthLayout({
           </Link>
         </div>
         <div className="flex flex-1 items-center justify-center">
-          <div className="w-full flex items-center justify-center">
-            {children}
-          </div>
+          <div className="w-full flex items-center justify-center">{children}</div>
         </div>
       </div>
       <div className="bg-muted relative hidden lg:block">

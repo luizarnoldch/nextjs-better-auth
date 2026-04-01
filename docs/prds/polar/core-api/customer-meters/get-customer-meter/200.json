@@ -1,0 +1,58 @@
+{
+	"id": "<string>",
+	"created_at": "2023-11-07T05:31:56Z",
+	"modified_at": "2023-11-07T05:31:56Z",
+	"customer_id": "<string>",
+	"meter_id": "<string>",
+	"consumed_units": 123,
+	"credited_units": 123,
+	"balance": 123,
+	"customer": {
+		"id": "<string>",
+		"created_at": "2023-11-07T05:31:56Z",
+		"modified_at": "2023-11-07T05:31:56Z",
+		"metadata": {},
+		"email": "<string>",
+		"email_verified": true,
+		"name": "John Doe",
+		"billing_address": {
+			"country": "AD",
+			"line1": "<string>",
+			"line2": "<string>",
+			"postal_code": "<string>",
+			"city": "<string>",
+			"state": "<string>"
+		},
+		"tax_id": {
+			"[0]": "<string>"
+		},
+		"organization_id": "<string>",
+		"deleted_at": "2023-11-07T05:31:56Z",
+		"avatar_url": "<string>",
+		"external_id": "usr_1337",
+		"type": "individual",
+		"locale": "<string>"
+	},
+	"meter": {
+		"metadata": {},
+		"created_at": "2023-11-07T05:31:56Z",
+		"modified_at": "2023-11-07T05:31:56Z",
+		"id": "<string>",
+		"name": "<string>",
+		"filter": {
+			"conjunction": "and",
+			"clauses": [
+				{
+					"property": "<string>",
+					"operator": "eq",
+					"value": "<string>"
+				}
+			]
+		},
+		"aggregation": {
+			"func": "count"
+		},
+		"organization_id": "<string>",
+		"archived_at": "2023-11-07T05:31:56Z"
+	}
+}

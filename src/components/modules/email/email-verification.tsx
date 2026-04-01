@@ -1,18 +1,9 @@
 import * as React from 'react';
-import {
-  Html,
-  Head,
-  Body,
-  Container,
-  Section,
-  Text,
-  Button,
-  Tailwind,
-} from '@react-email/components';
+import { Html, Head, Body, Container, Section, Text, Button, Tailwind } from '@react-email/components';
 
 type EmailVerificationProps = {
-  url: string
-}
+  url: string;
+};
 
 const EmailVerification = ({ url }: EmailVerificationProps) => {
   return (
@@ -27,8 +18,8 @@ const EmailVerification = ({ url }: EmailVerificationProps) => {
               </Text>
 
               <Text className="text-[16px] text-gray-700 mb-[24px] leading-[24px]">
-                Thank you for signing up! To complete your registration and secure your account,
-                please verify your email address by clicking the button below.
+                Thank you for signing up! To complete your registration and secure your account, please verify your
+                email address by clicking the button below.
               </Text>
 
               <Section className="text-center mb-[32px]">
@@ -41,8 +32,8 @@ const EmailVerification = ({ url }: EmailVerificationProps) => {
               </Section>
 
               <Text className="text-[14px] text-gray-600 mb-[16px] leading-[20px]">
-                This verification link will expire in 24 hours. If you didn't create an account,
-                you can safely ignore this email.
+                This verification link will expire in 24 hours. If you didn't create an account, you can safely ignore
+                this email.
               </Text>
 
               <Text className="text-[12px] text-gray-500 leading-[16px]">
@@ -57,11 +48,11 @@ const EmailVerification = ({ url }: EmailVerificationProps) => {
               <Text className="text-[12px] text-gray-500 text-center m-0">
                 © 2025 Your Company Name. All rights reserved.
               </Text>
+              <Text className="text-[12px] text-gray-500 text-center m-0">123 Business Street, Lima, PE 15001</Text>
               <Text className="text-[12px] text-gray-500 text-center m-0">
-                123 Business Street, Lima, PE 15001
-              </Text>
-              <Text className="text-[12px] text-gray-500 text-center m-0">
-                <a href="#" className="text-gray-500 no-underline">Unsubscribe</a>
+                <a href="#" className="text-gray-500 no-underline">
+                  Unsubscribe
+                </a>
               </Text>
             </Section>
           </Container>

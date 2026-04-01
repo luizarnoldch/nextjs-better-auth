@@ -1,18 +1,22 @@
 # Project: Next.js Better Auth Template
 
-This project is a comprehensive Next.js template integrated with Better Auth, Prisma, Shadcn UI, Minio, and Resend. It provides a robust foundation for building modern web applications with built-in authentication, storage, and email capabilities.
+This project is a web application that allows users to learn better-auth library and its features. The application provides a user-friendly interface for exploring the library's capabilities and understanding how to use it effectively.
 
 ## Tech Stack
-- **Framework:** Next.js (App Router)
+- **Framework:** Next.js (app router with src) +16.2.0
 - **Language:** TypeScript
-- **Authentication:** Better Auth
-- **Database ORM:** Prisma
-- **Database:** PostgreSQL (supports Neon for production)
+- **Library:** React +19.2.4
+- **Styling:** Tailwind CSS +4.2.2
 - **UI Components:** Shadcn UI (Radix UI)
-- **Styling:** Tailwind CSS
-- **Object Storage:** Minio (S3 Compatible)
-- **Email:** Resend
+- **Backend:** tRPC
+- **Frontend connection:** TanStack React Query with Server components integration.
+- **Database and ORM:** Prisma with PostgreSQL (neon on production)
+- **Authentication:** Better Auth
+- **Payment processing:** Polar.sh
+- **Form + Validator:** Tanstack React Form + Zod
+- **Email service:** Resend
 - **Linting/Formatting:** Biome
+- **Object Storage:** Minio (S3 Compatible)
 
 ## Project Structure
 - `src/app/`: Next.js App Router pages and API routes.
@@ -25,25 +29,11 @@ This project is a comprehensive Next.js template integrated with Better Auth, Pr
 
 ## Getting Started
 
-### Prerequisites
-- [Bun](https://bun.sh/) runtime.
-- PostgreSQL database.
-- Minio instance (or S3).
-- Resend API key.
-
-### Installation
-```bash
-bun install
-```
-
 ### Environment Variables
 Copy `.env.example` to `.env` and fill in the required values. Environment variables are validated in `src/lib/config.ts`.
 
-### Development
-```bash
-bun dev
-```
-This command generates the Prisma client and starts the Next.js development server.
+### Package manager:
+- Bun
 
 ### Database Management
 - **Generate Client:** `bunx prisma generate`

@@ -1,9 +1,9 @@
 import { User2Icon } from 'lucide-react';
 import Head from 'next/head';
 import Link from 'next/link';
-import React from 'react'
+import React from 'react';
 
-type Props = {}
+type Props = {};
 
 const LandingPage = (props: Props) => {
   return (
@@ -18,10 +18,18 @@ const LandingPage = (props: Props) => {
           <div className="container mx-auto px-6 flex justify-between items-center">
             <h1 className="text-2xl font-bold">BrandName</h1>
             <nav className="flex gap-4">
-              <Link href="#features" className="hover:text-blue-500">Features</Link>
-              <Link href="#about" className="hover:text-blue-500">About</Link>
-              <Link href="#contact" className="hover:text-blue-500">Contact</Link>
-              <Link href="/sign-in" className="hover:text-blue-500"><User2Icon /></Link>
+              <Link href="#features" className="hover:text-blue-500">
+                Features
+              </Link>
+              <Link href="#about" className="hover:text-blue-500">
+                About
+              </Link>
+              <Link href="#contact" className="hover:text-blue-500">
+                Contact
+              </Link>
+              <Link href="/sign-in" className="hover:text-blue-500">
+                <User2Icon />
+              </Link>
             </nav>
           </div>
         </header>
@@ -49,6 +57,6 @@ const LandingPage = (props: Props) => {
       </main>
     </>
   );
-}
+};
 
-export default LandingPage
+export default LandingPage;

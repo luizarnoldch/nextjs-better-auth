@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { baseProcedure, createTRPCRouter } from '../init';
 import { authRouter } from '@/features/auth/server/auth.router';
+import { paymentsRouter } from '@/features/payments/server/payments.router';
 
 export const appRouter = createTRPCRouter({
   hello: baseProcedure
@@ -15,6 +16,7 @@ export const appRouter = createTRPCRouter({
       };
     }),
   auth: authRouter,
+  payment: paymentsRouter,
 });
 
 // export type definition of API

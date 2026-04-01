@@ -1,0 +1,25 @@
+{
+	"min_date": "2023-12-25",
+	"intervals": {
+		"hour": {
+			"min_days": 123,
+			"max_days": 123
+		},
+		"day": {
+			"min_days": 123,
+			"max_days": 123
+		},
+		"week": {
+			"min_days": 123,
+			"max_days": 123
+		},
+		"month": {
+			"min_days": 123,
+			"max_days": 123
+		},
+		"year": {
+			"min_days": 123,
+			"max_days": 123
+		}
+	}
+}

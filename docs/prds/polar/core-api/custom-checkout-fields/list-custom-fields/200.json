@@ -1,0 +1,26 @@
+{
+	"items": [
+		{
+			"created_at": "2023-11-07T05:31:56Z",
+			"modified_at": "2023-11-07T05:31:56Z",
+			"id": "<string>",
+			"metadata": {},
+			"type": "<string>",
+			"slug": "<string>",
+			"name": "<string>",
+			"organization_id": "<string>",
+			"properties": {
+				"form_label": "<string>",
+				"form_help_text": "<string>",
+				"form_placeholder": "<string>",
+				"textarea": true,
+				"min_length": 1073741823,
+				"max_length": 1073741823
+			}
+		}
+	],
+	"pagination": {
+		"total_count": 123,
+		"max_page": 123
+	}
+}

@@ -1,5 +1,5 @@
-import * as Minio from "minio";
-import config from "./config";
+import * as Minio from 'minio';
+import config from './config';
 
 const s3Client = new Minio.Client({
   endPoint: config.minio.serverUrl,

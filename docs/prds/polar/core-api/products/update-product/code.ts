@@ -1,0 +1,16 @@
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar({
+	accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+	const result = await polar.products.update({
+		id: "<value>",
+		productUpdate: {},
+	});
+
+	console.log(result);
+}
+
+run();

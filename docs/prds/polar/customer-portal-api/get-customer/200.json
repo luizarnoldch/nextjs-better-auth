@@ -1,0 +1,23 @@
+{
+	"created_at": "2023-11-07T05:31:56Z",
+	"modified_at": "2023-11-07T05:31:56Z",
+	"id": "<string>",
+	"email": "<string>",
+	"email_verified": true,
+	"name": "<string>",
+	"billing_name": "<string>",
+	"billing_address": {
+		"country": "AD",
+		"line1": "<string>",
+		"line2": "<string>",
+		"postal_code": "<string>",
+		"city": "<string>",
+		"state": "<string>"
+	},
+	"tax_id": {
+		"[0]": "<string>"
+	},
+	"oauth_accounts": {},
+	"default_payment_method_id": "<string>",
+	"type": "individual"
+}

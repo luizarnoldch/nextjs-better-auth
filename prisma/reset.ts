@@ -1,5 +1,7 @@
-import s3Client from "@/lib/minio";
-import prisma from "@/lib/prisma";
+import 'dotenv/config';
+import s3Client from '@/lib/minio';
+import polar from '@/lib/polar';
+import prisma from '@/lib/prisma';
 
 async function cleanBuckets() {
   try {
@@ -7,16 +9,14 @@ async function cleanBuckets() {
     for (const bucket of listBuckets) {
       if (!bucket.name) continue;
       try {
-        const objectsStream = s3Client.listObjects(bucket.name, "", true);
+        const objectsStream = s3Client.listObjects(bucket.name, '', true);
         const objectsToDelete: string[] = [];
         for await (const obj of objectsStream) {
           if (obj.name) objectsToDelete.push(obj.name);
         }
         if (objectsToDelete.length > 0) {
           await s3Client.removeObjects(bucket.name, objectsToDelete);
-          console.log(
-            `Emptying bucket ${bucket.name}: deleted ${objectsToDelete.length} objects`,
-          );
+          console.log(`Emptying bucket ${bucket.name}: deleted ${objectsToDelete.length} objects`);
         }
         await s3Client.removeBucket(bucket.name);
         console.log(`Removed bucket: ${bucket.name}`);
@@ -25,38 +25,38 @@ async function cleanBuckets() {
       }
     }
   } catch (error: any) {
-    console.error("Error deleting bucket:", error);
+    console.error('Error deleting bucket:', error);
   }
 }
 
-// async function cleanPolarUsers() {
-//   try {
-//     let hasMore = true;
-//     let page = 1;
-//     while (hasMore) {
-//       const response = await polarClient.customers.list({
-//         limit: 100,
-//         page,
-//       });
-//       const customers = response.result.items;
-//       if (customers.length === 0) {
-//         hasMore = false;
-//         console.log("No more customers found.");
-//         break;
-//       }
-//       for (const customer of customers) {
-//         console.log(`Deleting customer: ${customer.email} (${customer.id})`);
-//         await polarClient.customers.delete({
-//           id: customer.id,
-//         });
-//       }
-//       page++;
-//     }
-//     console.log("Polar user cleanup completed.");
-//   } catch (error) {
-//     console.error("Error running seed script:", error);
-//   }
-// }
+async function cleanPolarUsers() {
+  try {
+    let hasMore = true;
+    let page = 1;
+    while (hasMore) {
+      const response = await polar.customers.list({
+        limit: 100,
+        page,
+      });
+      const customers = response.result.items;
+      if (customers.length === 0) {
+        hasMore = false;
+        console.log('No more customers found.');
+        break;
+      }
+      for (const customer of customers) {
+        console.log(`Deleting customer: ${customer.email} (${customer.id})`);
+        await polar.customers.delete({
+          id: customer.id,
+        });
+      }
+      page++;
+    }
+    console.log('Polar user cleanup completed.');
+  } catch (error) {
+    console.error('Error running seed script:', error);
+  }
+}
 
 async function cleanDatabase() {
   try {
@@ -67,33 +67,26 @@ async function cleanDatabase() {
     for (const { tablename, schemaname } of tables) {
       if (!tablename || !schemaname) continue;
       try {
-        await prisma.$executeRawUnsafe(
-          `TRUNCATE TABLE "${schemaname}"."${tablename}" RESTART IDENTITY CASCADE;`,
-        );
+        await prisma.$executeRawUnsafe(`TRUNCATE TABLE "${schemaname}"."${tablename}" RESTART IDENTITY CASCADE;`);
         console.log(`Truncated table: ${schemaname}.${tablename}`);
       } catch (error) {
-        console.error(
-          `Failed to truncate table ${schemaname}.${tablename}:`,
-          error,
-        );
+        console.error(`Failed to truncate table ${schemaname}.${tablename}:`, error);
       }
     }
-    console.log("Database cleaned successfully.");
+    console.log('Database cleaned successfully.');
   } catch (error) {
-    console.error("Error cleaning database:", error);
+    console.error('Error cleaning database:', error);
   }
 }
 
 async function main() {
-  if (process.env.NODE_ENV === "production") {
-    console.error(
-      "Refusing to reset database and delete bucket in production environment.",
-    );
+  if (process.env.NODE_ENV === 'production') {
+    console.error('Refusing to reset database and delete bucket in production environment.');
     return;
   }
 
   await cleanBuckets();
-  // await cleanPolarUsers();
+  await cleanPolarUsers();
   await cleanDatabase();
 }
 

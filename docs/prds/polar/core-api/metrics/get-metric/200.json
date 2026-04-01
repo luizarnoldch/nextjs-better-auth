@@ -1,0 +1,312 @@
+{
+	"periods": [
+		{
+			"timestamp": "2023-11-07T05:31:56Z",
+			"active_subscriptions": 123,
+			"committed_subscriptions": 123,
+			"monthly_recurring_revenue": 123,
+			"committed_monthly_recurring_revenue": 123,
+			"average_revenue_per_user": 123,
+			"checkouts": 123,
+			"succeeded_checkouts": 123,
+			"churned_subscriptions": 123,
+			"churn_rate": 123,
+			"orders": 123,
+			"revenue": 123,
+			"net_revenue": 123,
+			"cumulative_revenue": 123,
+			"net_cumulative_revenue": 123,
+			"costs": 123,
+			"cumulative_costs": 123,
+			"average_order_value": 123,
+			"net_average_order_value": 123,
+			"cost_per_user": 123,
+			"active_user_by_event": 123,
+			"one_time_products": 123,
+			"one_time_products_revenue": 123,
+			"one_time_products_net_revenue": 123,
+			"new_subscriptions": 123,
+			"new_subscriptions_revenue": 123,
+			"new_subscriptions_net_revenue": 123,
+			"renewed_subscriptions": 123,
+			"renewed_subscriptions_revenue": 123,
+			"renewed_subscriptions_net_revenue": 123,
+			"canceled_subscriptions": 123,
+			"canceled_subscriptions_customer_service": 123,
+			"canceled_subscriptions_low_quality": 123,
+			"canceled_subscriptions_missing_features": 123,
+			"canceled_subscriptions_switched_service": 123,
+			"canceled_subscriptions_too_complex": 123,
+			"canceled_subscriptions_too_expensive": 123,
+			"canceled_subscriptions_unused": 123,
+			"canceled_subscriptions_other": 123,
+			"checkouts_conversion": 123,
+			"ltv": 123,
+			"gross_margin": 123,
+			"gross_margin_percentage": 123,
+			"cashflow": 123
+		}
+	],
+	"totals": {
+		"active_subscriptions": 123,
+		"committed_subscriptions": 123,
+		"monthly_recurring_revenue": 123,
+		"committed_monthly_recurring_revenue": 123,
+		"average_revenue_per_user": 123,
+		"checkouts": 123,
+		"succeeded_checkouts": 123,
+		"churned_subscriptions": 123,
+		"churn_rate": 123,
+		"orders": 123,
+		"revenue": 123,
+		"net_revenue": 123,
+		"cumulative_revenue": 123,
+		"net_cumulative_revenue": 123,
+		"costs": 123,
+		"cumulative_costs": 123,
+		"average_order_value": 123,
+		"net_average_order_value": 123,
+		"cost_per_user": 123,
+		"active_user_by_event": 123,
+		"one_time_products": 123,
+		"one_time_products_revenue": 123,
+		"one_time_products_net_revenue": 123,
+		"new_subscriptions": 123,
+		"new_subscriptions_revenue": 123,
+		"new_subscriptions_net_revenue": 123,
+		"renewed_subscriptions": 123,
+		"renewed_subscriptions_revenue": 123,
+		"renewed_subscriptions_net_revenue": 123,
+		"canceled_subscriptions": 123,
+		"canceled_subscriptions_customer_service": 123,
+		"canceled_subscriptions_low_quality": 123,
+		"canceled_subscriptions_missing_features": 123,
+		"canceled_subscriptions_switched_service": 123,
+		"canceled_subscriptions_too_complex": 123,
+		"canceled_subscriptions_too_expensive": 123,
+		"canceled_subscriptions_unused": 123,
+		"canceled_subscriptions_other": 123,
+		"checkouts_conversion": 123,
+		"ltv": 123,
+		"gross_margin": 123,
+		"gross_margin_percentage": 123,
+		"cashflow": 123
+	},
+	"metrics": {
+		"active_subscriptions": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"committed_subscriptions": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"monthly_recurring_revenue": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"committed_monthly_recurring_revenue": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"average_revenue_per_user": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"checkouts": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"succeeded_checkouts": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"churned_subscriptions": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"churn_rate": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"orders": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"revenue": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"net_revenue": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"cumulative_revenue": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"net_cumulative_revenue": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"costs": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"cumulative_costs": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"average_order_value": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"net_average_order_value": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"cost_per_user": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"active_user_by_event": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"one_time_products": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"one_time_products_revenue": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"one_time_products_net_revenue": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"new_subscriptions": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"new_subscriptions_revenue": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"new_subscriptions_net_revenue": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"renewed_subscriptions": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"renewed_subscriptions_revenue": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"renewed_subscriptions_net_revenue": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"canceled_subscriptions": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"canceled_subscriptions_customer_service": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"canceled_subscriptions_low_quality": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"canceled_subscriptions_missing_features": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"canceled_subscriptions_switched_service": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"canceled_subscriptions_too_complex": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"canceled_subscriptions_too_expensive": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"canceled_subscriptions_unused": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"canceled_subscriptions_other": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"checkouts_conversion": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"ltv": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"gross_margin": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"gross_margin_percentage": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		},
+		"cashflow": {
+			"slug": "<string>",
+			"display_name": "<string>",
+			"type": "scalar"
+		}
+	}
+}

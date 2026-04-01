@@ -1,15 +1,15 @@
-import { PrismaClient } from "@/generated/prisma/client";
-import { PrismaNeon } from "@prisma/adapter-neon";
-import { PrismaPg } from "@prisma/adapter-pg";
-import { withAccelerate } from "@prisma/extension-accelerate";
-import config from "./config";
+import { PrismaClient } from '@/generated/prisma/client';
+import { PrismaNeon } from '@prisma/adapter-neon';
+import { PrismaPg } from '@prisma/adapter-pg';
+import { withAccelerate } from '@prisma/extension-accelerate';
+import config from './config';
 
 const globalForPrisma = global as unknown as {
   prisma: PrismaClient;
 };
 
 const prismaClientSingleton = () => {
-  if (config.nodeEnv !== "production") {
+  if (config.nodeEnv !== 'production') {
     const connectionString = config.databaseUrl;
     const adapter = new PrismaPg({ connectionString });
     return new PrismaClient({ adapter }).$extends(withAccelerate());
@@ -22,6 +22,6 @@ const prismaClientSingleton = () => {
 
 const prisma = globalForPrisma.prisma || prismaClientSingleton();
 
-if (config.nodeEnv !== "production") globalForPrisma.prisma = prisma;
+if (config.nodeEnv !== 'production') globalForPrisma.prisma = prisma;
 
 export default prisma;

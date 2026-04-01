@@ -1,0 +1,34 @@
+{
+	"items": [
+		{
+			"id": "<string>",
+			"benefit_id": "<string>",
+			"file": {
+				"id": "<string>",
+				"organization_id": "<string>",
+				"name": "<string>",
+				"path": "<string>",
+				"mime_type": "<string>",
+				"size": 123,
+				"storage_version": "<string>",
+				"checksum_etag": "<string>",
+				"checksum_sha256_base64": "<string>",
+				"checksum_sha256_hex": "<string>",
+				"last_modified_at": "2023-11-07T05:31:56Z",
+				"download": {
+					"url": "<string>",
+					"expires_at": "2023-11-07T05:31:56Z",
+					"headers": {}
+				},
+				"version": "<string>",
+				"is_uploaded": true,
+				"service": "downloadable",
+				"size_readable": "<string>"
+			}
+		}
+	],
+	"pagination": {
+		"total_count": 123,
+		"max_page": 123
+	}
+}

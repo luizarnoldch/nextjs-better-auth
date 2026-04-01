@@ -1,0 +1,103 @@
+{
+	"id": "<string>",
+	"created_at": "2023-11-07T05:31:56Z",
+	"modified_at": "2023-11-07T05:31:56Z",
+	"trial_interval": "day",
+	"trial_interval_count": 123,
+	"metadata": {},
+	"payment_processor": "stripe",
+	"client_secret": "<string>",
+	"success_url": "<string>",
+	"return_url": "<string>",
+	"label": "<string>",
+	"allow_discount_codes": true,
+	"require_billing_address": true,
+	"discount_id": "<string>",
+	"organization_id": "<string>",
+	"products": [
+		{
+			"metadata": {},
+			"id": "<string>",
+			"created_at": "2023-11-07T05:31:56Z",
+			"modified_at": "2023-11-07T05:31:56Z",
+			"trial_interval": "day",
+			"trial_interval_count": 123,
+			"name": "<string>",
+			"description": "<string>",
+			"visibility": "draft",
+			"recurring_interval": "day",
+			"recurring_interval_count": 123,
+			"is_recurring": true,
+			"is_archived": true,
+			"organization_id": "<string>",
+			"prices": [
+				{
+					"created_at": "2023-11-07T05:31:56Z",
+					"modified_at": "2023-11-07T05:31:56Z",
+					"id": "<string>",
+					"source": "catalog",
+					"amount_type": "<string>",
+					"price_currency": "<string>",
+					"is_archived": true,
+					"product_id": "<string>",
+					"type": "<string>",
+					"recurring_interval": "day",
+					"price_amount": 123,
+					"legacy": true
+				}
+			],
+			"benefits": [
+				{
+					"id": "<string>",
+					"created_at": "2023-11-07T05:31:56Z",
+					"modified_at": "2023-11-07T05:31:56Z",
+					"type": "custom",
+					"description": "<string>",
+					"selectable": true,
+					"deletable": true,
+					"organization_id": "<string>"
+				}
+			],
+			"medias": [
+				{
+					"id": "<string>",
+					"organization_id": "<string>",
+					"name": "<string>",
+					"path": "<string>",
+					"mime_type": "<string>",
+					"size": 123,
+					"storage_version": "<string>",
+					"checksum_etag": "<string>",
+					"checksum_sha256_base64": "<string>",
+					"checksum_sha256_hex": "<string>",
+					"last_modified_at": "2023-11-07T05:31:56Z",
+					"version": "<string>",
+					"service": "<string>",
+					"is_uploaded": true,
+					"created_at": "2023-11-07T05:31:56Z",
+					"size_readable": "<string>",
+					"public_url": "<string>"
+				}
+			]
+		}
+	],
+	"discount": {
+		"duration": "once",
+		"type": "fixed",
+		"amount": 123,
+		"currency": "<string>",
+		"amounts": {},
+		"created_at": "2023-11-07T05:31:56Z",
+		"modified_at": "2023-11-07T05:31:56Z",
+		"id": "<string>",
+		"metadata": {},
+		"name": "<string>",
+		"code": "<string>",
+		"starts_at": "2023-11-07T05:31:56Z",
+		"ends_at": "2023-11-07T05:31:56Z",
+		"max_redemptions": 123,
+		"redemptions_count": 123,
+		"organization_id": "<string>"
+	},
+	"url": "<string>"
+}

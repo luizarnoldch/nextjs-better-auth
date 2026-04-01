@@ -1,0 +1,337 @@
+
+✔ Generated Prisma Client (7.6.0) to .\src\generated\prisma in 40ms
+
+▲ Next.js 16.2.0 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.46:3000
+- Environments: .env
+✓ Ready in 240ms
+
+✅ middleware disparado en: /dashboard/payments
+ GET /dashboard/payments?checkout_id=2827e7c2-4362-4084-9635-89d3a5ae2815 200 in 1697ms (next.js: 429ms, proxy.ts: 705ms, application-code: 563ms)
+ GET /api/trpc/auth.getSession,payment.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%2C%22v%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%7D%7D%7D 200 in 1967ms (next.js: 1185ms, application-code: 782ms)
+✅ middleware disparado en: /dashboard/payments
+ GET /dashboard/payments?checkout_id=2827e7c2-4362-4084-9635-89d3a5ae2815 200 in 101ms (next.js: 2ms, proxy.ts: 37ms, application-code: 62ms)
+ GET /api/trpc/auth.getSession,payment.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%2C%22v%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%7D%7D%7D 200 in 435ms (next.js: 7ms, application-code: 428ms)
+ POST /api/trpc/payment.createCheckout?batch=1 200 in 355ms (next.js: 7ms, application-code: 348ms)
+ POST /api/auth/polar/webhooks 200 in 845ms (next.js: 831ms, application-code: 13ms)
+ POST /api/auth/polar/webhooks 200 in 15ms (next.js: 7ms, application-code: 8ms)
+ POST /api/auth/polar/webhooks 200 in 6ms (next.js: 1880µs, application-code: 4ms)
+ POST /api/auth/polar/webhooks 200 in 11ms (next.js: 6ms, application-code: 5ms)
+ POST /api/auth/polar/webhooks 200 in 11ms (next.js: 5ms, application-code: 6ms)
+onSubscriptionActive: received payload {
+  type: 'subscription.active',
+  timestamp: 2026-04-01T06:25:03.908Z,
+  data: {
+    createdAt: 2026-04-01T06:25:03.681Z,
+    modifiedAt: null,
+    id: 'a0383b6b-f14c-4477-b777-a87554da1e5a',
+    amount: 4000,
+    currency: 'pen',
+    recurringInterval: 'month',
+    recurringIntervalCount: 1,
+    status: 'trialing',
+    currentPeriodStart: 2026-04-01T06:25:03.673Z,
+    currentPeriodEnd: 2026-05-01T06:24:59.800Z,
+    trialStart: 2026-04-01T06:25:03.673Z,
+    trialEnd: 2026-05-01T06:24:59.800Z,
+    cancelAtPeriodEnd: false,
+    canceledAt: null,
+    startedAt: 2026-04-01T06:25:03.673Z,
+    endsAt: null,
+    endedAt: null,
+    customerId: '21353133-717e-4467-a17a-d9bebef9f6e7',
+    productId: '260ea636-e7ac-452e-ae4c-8c0db35365ca',
+    discountId: null,
+    checkoutId: 'bb9180bf-54a8-49ee-afd1-c678d2c83490',
+    seats: null,
+    customerCancellationReason: null,
+    customerCancellationComment: null,
+    metadata: {},
+    customFieldData: {},
+    customer: {
+      id: '21353133-717e-4467-a17a-d9bebef9f6e7',
+      createdAt: 2026-04-01T06:02:37.649Z,
+      modifiedAt: 2026-04-01T06:25:00.408Z,
+      metadata: [Object],
+      externalId: '07ce9957-6af6-4c7e-b134-e48ae2a38d0d',
+      email: 'luizarnoldch@gmail.com',
+      emailVerified: false,
+      type: 'individual',
+      name: 'luiz arnold chavez burgos',
+      billingAddress: [Object],
+      taxId: null,
+      locale: 'en-US',
+      organizationId: 'cba82639-1b03-43c2-8b3c-114677d043ba',
+      deletedAt: null,
+      avatarUrl: 'https://www.gravatar.com/avatar/7f9b5e46abb3933f038a2bc629e7169ba2bf1ac1456357f61cc4057f192fbde5?d=404'
+    },
+    product: {
+      id: '260ea636-e7ac-452e-ae4c-8c0db35365ca',
+      createdAt: 2026-03-28T00:23:48.517Z,
+      modifiedAt: 2026-03-28T01:42:47.720Z,
+      trialInterval: 'month',
+      trialIntervalCount: 1,
+      name: 'Independiente',
+      description: null,
+      visibility: 'public',
+      recurringInterval: 'month',
+      recurringIntervalCount: 1,
+      isRecurring: true,
+      isArchived: false,
+      organizationId: 'cba82639-1b03-43c2-8b3c-114677d043ba',
+      metadata: [Object],
+      prices: [Array],
+      benefits: [Array],
+      medias: [],
+      attachedCustomFields: []
+    },
+    discount: null,
+    prices: [ [Object] ],
+    meters: [],
+    pendingUpdate: null
+  }
+}
+ POST /api/auth/polar/webhooks 200 in 47ms (next.js: 1349µs, application-code: 46ms)
+onSubscriptionUpdated: received payload {
+  type: 'subscription.updated',
+  timestamp: 2026-04-01T06:25:04.017Z,
+  data: {
+    createdAt: 2026-04-01T06:25:03.681Z,
+    modifiedAt: null,
+    id: 'a0383b6b-f14c-4477-b777-a87554da1e5a',
+    amount: 4000,
+    currency: 'pen',
+    recurringInterval: 'month',
+    recurringIntervalCount: 1,
+    status: 'trialing',
+    currentPeriodStart: 2026-04-01T06:25:03.673Z,
+    currentPeriodEnd: 2026-05-01T06:24:59.800Z,
+    trialStart: 2026-04-01T06:25:03.673Z,
+    trialEnd: 2026-05-01T06:24:59.800Z,
+    cancelAtPeriodEnd: false,
+    canceledAt: null,
+    startedAt: 2026-04-01T06:25:03.673Z,
+    endsAt: null,
+    endedAt: null,
+    customerId: '21353133-717e-4467-a17a-d9bebef9f6e7',
+    productId: '260ea636-e7ac-452e-ae4c-8c0db35365ca',
+    discountId: null,
+    checkoutId: 'bb9180bf-54a8-49ee-afd1-c678d2c83490',
+    seats: null,
+    customerCancellationReason: null,
+    customerCancellationComment: null,
+    metadata: {},
+    customFieldData: {},
+    customer: {
+      id: '21353133-717e-4467-a17a-d9bebef9f6e7',
+      createdAt: 2026-04-01T06:02:37.649Z,
+      modifiedAt: 2026-04-01T06:25:00.408Z,
+      metadata: [Object],
+      externalId: '07ce9957-6af6-4c7e-b134-e48ae2a38d0d',
+      email: 'luizarnoldch@gmail.com',
+      emailVerified: false,
+      type: 'individual',
+      name: 'luiz arnold chavez burgos',
+      billingAddress: [Object],
+      taxId: null,
+      locale: 'en-US',
+      organizationId: 'cba82639-1b03-43c2-8b3c-114677d043ba',
+      deletedAt: null,
+      avatarUrl: 'https://www.gravatar.com/avatar/7f9b5e46abb3933f038a2bc629e7169ba2bf1ac1456357f61cc4057f192fbde5?d=404'
+    },
+    product: {
+      id: '260ea636-e7ac-452e-ae4c-8c0db35365ca',
+      createdAt: 2026-03-28T00:23:48.517Z,
+      modifiedAt: 2026-03-28T01:42:47.720Z,
+      trialInterval: 'month',
+      trialIntervalCount: 1,
+      name: 'Independiente',
+      description: null,
+      visibility: 'public',
+      recurringInterval: 'month',
+      recurringIntervalCount: 1,
+      isRecurring: true,
+      isArchived: false,
+      organizationId: 'cba82639-1b03-43c2-8b3c-114677d043ba',
+      metadata: [Object],
+      prices: [Array],
+      benefits: [Array],
+      medias: [],
+      attachedCustomFields: []
+    },
+    discount: null,
+    prices: [ [Object] ],
+    meters: [],
+    pendingUpdate: null
+  }
+}
+ POST /api/auth/polar/webhooks 200 in 16ms (next.js: 6ms, application-code: 10ms)
+ POST /api/auth/polar/webhooks 200 in 7ms (next.js: 1206µs, application-code: 6ms)
+ POST /api/auth/polar/webhooks 200 in 10ms (next.js: 5ms, application-code: 5ms)
+ POST /api/auth/polar/webhooks 200 in 6ms (next.js: 1147µs, application-code: 5ms)
+ POST /api/auth/polar/webhooks 200 in 9ms (next.js: 5ms, application-code: 4ms)
+✅ middleware disparado en: /dashboard/payments
+ POST /api/auth/polar/webhooks 200 in 8ms (next.js: 1153µs, application-code: 7ms)
+ GET /dashboard/payments?checkout_id=bb9180bf-54a8-49ee-afd1-c678d2c83490 200 in 238ms (next.js: 1766µs, proxy.ts: 36ms, application-code: 200ms)
+ POST /api/auth/polar/webhooks 200 in 12ms (next.js: 5ms, application-code: 7ms)
+ GET /api/trpc/auth.getSession,payment.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%2C%22v%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%7D%7D%7D 200 in 420ms (next.js: 6ms, application-code: 414ms)
+ POST /api/auth/polar/webhooks 200 in 6ms (next.js: 1500µs, application-code: 5ms)
+ POST /api/auth/polar/webhooks 200 in 10ms (next.js: 5ms, application-code: 5ms)
+onSubscriptionUpdated: received payload {
+  type: 'subscription.updated',
+  timestamp: 2026-04-01T06:25:40.421Z,
+  data: {
+    createdAt: 2026-04-01T06:25:03.681Z,
+    modifiedAt: 2026-04-01T06:25:40.262Z,
+    id: 'a0383b6b-f14c-4477-b777-a87554da1e5a',
+    amount: 4000,
+    currency: 'pen',
+    recurringInterval: 'month',
+    recurringIntervalCount: 1,
+    status: 'active',
+    currentPeriodStart: 2026-04-01T06:25:40.232Z,
+    currentPeriodEnd: 2026-05-01T06:25:40.232Z,
+    trialStart: 2026-04-01T06:25:03.673Z,
+    trialEnd: 2026-04-01T06:25:40.232Z,
+    cancelAtPeriodEnd: false,
+    canceledAt: null,
+    startedAt: 2026-04-01T06:25:03.673Z,
+    endsAt: null,
+    endedAt: null,
+    customerId: '21353133-717e-4467-a17a-d9bebef9f6e7',
+    productId: '260ea636-e7ac-452e-ae4c-8c0db35365ca',
+    discountId: null,
+    checkoutId: 'bb9180bf-54a8-49ee-afd1-c678d2c83490',
+    seats: null,
+    customerCancellationReason: null,
+    customerCancellationComment: null,
+    metadata: {},
+    customFieldData: {},
+    customer: {
+      id: '21353133-717e-4467-a17a-d9bebef9f6e7',
+      createdAt: 2026-04-01T06:02:37.649Z,
+      modifiedAt: 2026-04-01T06:25:04.047Z,
+      metadata: [Object],
+      externalId: '07ce9957-6af6-4c7e-b134-e48ae2a38d0d',
+      email: 'luizarnoldch@gmail.com',
+      emailVerified: false,
+      type: 'individual',
+      name: 'luiz arnold chavez burgos',
+      billingAddress: [Object],
+      taxId: null,
+      locale: 'en-US',
+      organizationId: 'cba82639-1b03-43c2-8b3c-114677d043ba',
+      deletedAt: null,
+      avatarUrl: 'https://www.gravatar.com/avatar/7f9b5e46abb3933f038a2bc629e7169ba2bf1ac1456357f61cc4057f192fbde5?d=404'
+    },
+    product: {
+      id: '260ea636-e7ac-452e-ae4c-8c0db35365ca',
+      createdAt: 2026-03-28T00:23:48.517Z,
+      modifiedAt: 2026-03-28T01:42:47.720Z,
+      trialInterval: 'month',
+      trialIntervalCount: 1,
+      name: 'Independiente',
+      description: null,
+      visibility: 'public',
+      recurringInterval: 'month',
+      recurringIntervalCount: 1,
+      isRecurring: true,
+      isArchived: false,
+      organizationId: 'cba82639-1b03-43c2-8b3c-114677d043ba',
+      metadata: [Object],
+      prices: [Array],
+      benefits: [Array],
+      medias: [],
+      attachedCustomFields: []
+    },
+    discount: null,
+    prices: [ [Object] ],
+    meters: [],
+    pendingUpdate: null
+  }
+}
+ POST /api/auth/polar/webhooks 200 in 32ms (next.js: 5ms, application-code: 27ms)
+onSubscriptionUpdated: received payload {
+  type: 'subscription.updated',
+  timestamp: 2026-04-01T06:25:40.652Z,
+  data: {
+    createdAt: 2026-04-01T06:25:03.681Z,
+    modifiedAt: 2026-04-01T06:25:40.262Z,
+    id: 'a0383b6b-f14c-4477-b777-a87554da1e5a',
+    amount: 4000,
+    currency: 'pen',
+    recurringInterval: 'month',
+    recurringIntervalCount: 1,
+    status: 'active',
+    currentPeriodStart: 2026-04-01T06:25:40.232Z,
+    currentPeriodEnd: 2026-05-01T06:25:40.232Z,
+    trialStart: 2026-04-01T06:25:03.673Z,
+    trialEnd: 2026-04-01T06:25:40.232Z,
+    cancelAtPeriodEnd: false,
+    canceledAt: null,
+    startedAt: 2026-04-01T06:25:03.673Z,
+    endsAt: null,
+    endedAt: null,
+    customerId: '21353133-717e-4467-a17a-d9bebef9f6e7',
+    productId: '260ea636-e7ac-452e-ae4c-8c0db35365ca',
+    discountId: null,
+    checkoutId: 'bb9180bf-54a8-49ee-afd1-c678d2c83490',
+    seats: null,
+    customerCancellationReason: null,
+    customerCancellationComment: null,
+    metadata: {},
+    customFieldData: {},
+    customer: {
+      id: '21353133-717e-4467-a17a-d9bebef9f6e7',
+      createdAt: 2026-04-01T06:02:37.649Z,
+      modifiedAt: 2026-04-01T06:25:04.047Z,
+      metadata: [Object],
+      externalId: '07ce9957-6af6-4c7e-b134-e48ae2a38d0d',
+      email: 'luizarnoldch@gmail.com',
+      emailVerified: false,
+      type: 'individual',
+      name: 'luiz arnold chavez burgos',
+      billingAddress: [Object],
+      taxId: null,
+      locale: 'en-US',
+      organizationId: 'cba82639-1b03-43c2-8b3c-114677d043ba',
+      deletedAt: null,
+      avatarUrl: 'https://www.gravatar.com/avatar/7f9b5e46abb3933f038a2bc629e7169ba2bf1ac1456357f61cc4057f192fbde5?d=404'
+    },
+    product: {
+      id: '260ea636-e7ac-452e-ae4c-8c0db35365ca',
+      createdAt: 2026-03-28T00:23:48.517Z,
+      modifiedAt: 2026-03-28T01:42:47.720Z,
+      trialInterval: 'month',
+      trialIntervalCount: 1,
+      name: 'Independiente',
+      description: null,
+      visibility: 'public',
+      recurringInterval: 'month',
+      recurringIntervalCount: 1,
+      isRecurring: true,
+      isArchived: false,
+      organizationId: 'cba82639-1b03-43c2-8b3c-114677d043ba',
+      metadata: [Object],
+      prices: [Array],
+      benefits: [Array],
+      medias: [],
+      attachedCustomFields: []
+    },
+    discount: null,
+    prices: [ [Object] ],
+    meters: [],
+    pendingUpdate: null
+  }
+}
+ POST /api/auth/polar/webhooks 200 in 11ms (next.js: 1593µs, application-code: 10ms)
+ POST /api/auth/polar/webhooks 200 in 9ms (next.js: 5ms, application-code: 5ms)
+ POST /api/auth/polar/webhooks 200 in 6ms (next.js: 1916µs, application-code: 5ms)
+ POST /api/auth/polar/webhooks 200 in 10ms (next.js: 5ms, application-code: 5ms)
+ POST /api/auth/polar/webhooks 200 in 6ms (next.js: 1390µs, application-code: 4ms)
+ POST /api/auth/polar/webhooks 200 in 10ms (next.js: 6ms, application-code: 4ms)
+ POST /api/auth/polar/webhooks 200 in 8ms (next.js: 1327µs, application-code: 7ms)
+ POST /api/auth/polar/webhooks 200 in 12ms (next.js: 5ms, application-code: 7ms)
+ POST /api/auth/polar/webhooks 200 in 10ms (next.js: 5ms, application-code: 5ms)
+[?25h
