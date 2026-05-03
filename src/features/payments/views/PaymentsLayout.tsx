@@ -4,31 +4,26 @@ import { headers } from 'next/headers';
 import React from 'react';
 
 export default async function PaymentsLayout({ children }: { children: React.ReactNode }) {
-
   const session = await auth.api.getSession({
     headers: await headers(),
-  })
+  });
 
   if (!session || !session.user) {
-    return null
+    return null;
   }
 
-  const user = session.user
+  const user = session.user;
 
   const subscription = await prisma.userSubscription.findFirst({
     where: {
       userId: user.id,
-      state: "active",
+      state: 'active',
     },
     orderBy: {
-      startedAt: "desc",
+      startedAt: 'desc',
     },
     include: { subscription: true },
-  })
-
-  if (!subscription) {
-    return null
-  }
+  });
 
   return (
     <div className="not-prose @container flex flex-col gap-16 px-8 py-24 text-center">
@@ -38,7 +33,7 @@ export default async function PaymentsLayout({ children }: { children: React.Rea
           Managing a business is hard enough, so why not make your life easier? Our pricing plans are simple,
           transparent and scale with you.
         </p>
-        <p>Subscription: {subscription.subscription.name}</p>
+        {subscription ? <p>Subscription: {subscription.subscription.name}</p> : null}
         {children}
       </div>
     </div>

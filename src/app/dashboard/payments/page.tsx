@@ -1,12 +1,7 @@
-import ProductList from '@/features/payments/components/ProductList';
-import PaymentsLayout from '@/features/payments/views/PaymentsLayout';
+import PaymentsView from '@/features/payments/views/PaymentsView';
 
 const PaymentsPage = () => {
-  return (
-    <PaymentsLayout>
-      <ProductList />
-    </PaymentsLayout>
-  );
+  return <PaymentsView />;
 };
 
 export default PaymentsPage;

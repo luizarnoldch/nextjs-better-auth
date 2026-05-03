@@ -1,4 +1,5 @@
-import { betterAuth } from 'better-auth';
+import type { betterAuth } from 'better-auth';
+import { sendPasswordResetEmail } from '@/lib/resend';
 import { hashPassword, verifyPassword } from './password';
 
 /**
@@ -30,7 +31,7 @@ export const emailAndPasswordOptions: Parameters<typeof betterAuth>[0]['emailAnd
    * Callback triggered when someone tries to sign up with an email that already exists.
    * This is only called when enumeration protection is active (requireEmailVerification: true or autoSignIn: false).
    */
-  onExistingUserSignUp: async ({ user }, request) => {
+  onExistingUserSignUp: async ({ user }, _request) => {
     // Possible actions here:
     // 1. Send a "Security Alert" email to the existing user.
     // 2. Log the attempt for security auditing.
@@ -51,7 +52,7 @@ export const emailAndPasswordOptions: Parameters<typeof betterAuth>[0]['emailAnd
    */
   sendResetPassword: async ({ user, url, token }) => {
     console.log(`[auth/email-auth.ts] Password reset email sent to: ${user.email}`);
-    // TODO: Implement password reset email sending
+    await sendPasswordResetEmail({ user, url, token });
   },
 
   /**

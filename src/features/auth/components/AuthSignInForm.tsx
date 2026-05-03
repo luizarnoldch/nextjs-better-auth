@@ -65,7 +65,7 @@ export const AuthSignInForm = () => {
               <Field>
                 <div className="flex items-center">
                   <FieldLabel>Password</FieldLabel>
-                  <Link href="#" className="ml-auto inline-block text-sm underline">
+                  <Link href="/forgot-password" className="ml-auto inline-block text-sm underline">
                     Forgot your password?
                   </Link>
                 </div>
