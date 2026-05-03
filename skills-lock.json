@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "skills": {
+    "better-auth-best-practices": {
+      "source": "better-auth/skills",
+      "sourceType": "github",
+      "skillPath": "better-auth/best-practices/SKILL.md",
+      "computedHash": "9ab075b5061be2a5f299c10505667345cc1ec76e8de4120901cfd586643e776f"
+    },
+    "better-auth-security-best-practices": {
+      "source": "better-auth/skills",
+      "sourceType": "github",
+      "skillPath": "security/SKILL.md",
+      "computedHash": "ed38caef4b297cc399d717258d6ea4e6ecb8894c453c83450064c7e7c6e5cc02"
+    },
+    "create-auth-skill": {
+      "source": "better-auth/skills",
+      "sourceType": "github",
+      "skillPath": "better-auth/create-auth/SKILL.md",
+      "computedHash": "393e8d2d795fa5797c9a4e0665f29183ea2e140233db59746d510340a10456e6"
+    },
+    "email-and-password-best-practices": {
+      "source": "better-auth/skills",
+      "sourceType": "github",
+      "skillPath": "better-auth/emailAndPassword/SKILL.md",
+      "computedHash": "7786d722fa682b3d6a99793e73a9d51b59becefa595676134a993020633e068f"
+    },
+    "organization-best-practices": {
+      "source": "better-auth/skills",
+      "sourceType": "github",
+      "skillPath": "better-auth/organization/SKILL.md",
+      "computedHash": "fa7a76e45a1f9632e6d63e92b476cf566e64f6e93a2c8ee00bc77b4a74008fbd"
+    },
+    "prisma-cli": {
+      "source": "prisma/skills",
+      "sourceType": "github",
+      "skillPath": "prisma-cli/SKILL.md",
+      "computedHash": "b9d9314e3716af725997843c5026ba0e258fb2d27a986190bf2ad53be67b72b9"
+    },
+    "prisma-client-api": {
+      "source": "prisma/skills",
+      "sourceType": "github",
+      "skillPath": "prisma-client-api/SKILL.md",
+      "computedHash": "0434410e48fb796bbdc3ad0050654bfc9cf72c89b30dbad098ee5c9f655b7f85"
+    },
+    "prisma-database-setup": {
+      "source": "prisma/skills",
+      "sourceType": "github",
+      "skillPath": "prisma-database-setup/SKILL.md",
+      "computedHash": "46d2dc2f9c968722376bbb6a1a1389c82bd7cceb5973ac1486c54890514b8959"
+    },
+    "prisma-driver-adapter-implementation": {
+      "source": "prisma/skills",
+      "sourceType": "github",
+      "skillPath": "prisma-driver-adapter-implementation/SKILL.md",
+      "computedHash": "2e00b0d05f0da23796f6d44684e19219b74cf993f8a2df6e5b044812f375bbc6"
+    },
+    "prisma-postgres": {
+      "source": "prisma/skills",
+      "sourceType": "github",
+      "skillPath": "prisma-postgres/SKILL.md",
+      "computedHash": "d090d1206fb6a2dd9f7b9f658d851ccd653132512c53c6e0a164110d9ee80005"
+    },
+    "prisma-postgres-setup": {
+      "source": "prisma/skills",
+      "sourceType": "github",
+      "skillPath": "prisma-postgres-setup/SKILL.md",
+      "computedHash": "5dbcf5a488d7cb7136340b86dcf781d6d92cf793f92c105ef644ac31ccac4d3b"
+    },
+    "prisma-upgrade-v7": {
+      "source": "prisma/skills",
+      "sourceType": "github",
+      "skillPath": "prisma-upgrade-v7/SKILL.md",
+      "computedHash": "2e4d54a4c7a0fc2476e81686718a765f5eb2cacfb2fb0822f3109c76bf4a9bb0"
+    },
+    "two-factor-authentication-best-practices": {
+      "source": "better-auth/skills",
+      "sourceType": "github",
+      "skillPath": "better-auth/twoFactor/SKILL.md",
+      "computedHash": "c4f3a299c62c1985b774b7c28e53b7e55c565dbf973fd52b08899e4bcfffa3f9"
+    }
+  }
+}

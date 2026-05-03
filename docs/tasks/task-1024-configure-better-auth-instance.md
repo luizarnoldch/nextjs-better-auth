@@ -4,28 +4,28 @@
 **Blocking:** 1025, 1026  
 
 ## Next‑Task‑Planner plan
-- [ ] 1.0 Prisma Schema & Migration – not required
-- [ ] 2.0 Zod Schema – not required
-- [ ] 3.0 tRPC Router
+- [x] 1.0 Prisma Schema & Migration – not required
+- [x] 2.0 Zod Schema – not required
+- [x] 3.0 tRPC Router
   **Context:** Central auth instance required by routers & API.
 
-  - [ ] 3.1 Create `src/lib/auth.ts` exporting configured `betterAuth`
+  - [x] 3.1 Create `src/lib/auth.ts` exporting configured `betterAuth` (completed)
     **Files:** `src/lib/auth.ts`
     **Skills:** `better-auth-best-practices`
     **Estimate:** 1.5 h
 
-  - [ ] 3.2 Verify instance compiles with project build
+  - [x] 3.2 Verify instance compiles with project build (completed)
     **Files:** –
     **Skills:** general TypeScript
     **Estimate:** 0.5 h
 
-  - [ ] 3.3 Lint & format file
+  - [x] 3.3 Lint & format file (completed)
     **Files:** `src/lib/auth.ts`
     **Skills:** linting conventions
     **Estimate:** 0.5 h
 
-- [ ] 4.0 TanStack Query & Form Hooks – not required
-- [ ] 5.0 App Router Pages – not required
-- [ ] 6.0 Views, Layouts & Loading – not required
-- [ ] 7.0 Component UI – not required
-- [ ] 8.0 Component Client Islands – not required
+- [x] 4.0 TanStack Query & Form Hooks – not required
+- [x] 5.0 App Router Pages – not required
+- [x] 6.0 Views, Layouts & Loading – not required
+- [x] 7.0 Component UI – not required
+- [x] 8.0 Component Client Islands – not required

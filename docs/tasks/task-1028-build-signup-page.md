@@ -4,43 +4,43 @@
 **Blocking:** –  
 
 ## Next‑Task‑Planner plan
-- [ ] 1.0 Prisma Schema & Migration – not required
-- [ ] 2.0 Zod Schema – not required
-- [ ] 3.0 tRPC Router – not required
-- [ ] 4.0 TanStack Query & Form Hooks – not required
+- [x] 1.0 Prisma Schema & Migration – not required
+- [x] 2.0 Zod Schema – not required
+- [x] 3.0 tRPC Router – not required
+- [x] 4.0 TanStack Query & Form Hooks – not required
 
-- [ ] 5.0 App Router Pages
+- [x] 5.0 App Router Pages
   **Context:** Create `/signup` page entry point.
 
-  - [ ] 5.1 Scaffold `src/app/signup/page.tsx` with Shadcn `<Card>` and `<Form>` skeleton
+  - [x] 5.1 Scaffold `src/app/(auth)/sign-up/page.tsx` (exists) (completed)
     **Files:** `src/app/signup/page.tsx`
     **Skills:** `next-view-expert`
     **Estimate:** 1 h
 
-- [ ] 6.0 Views, Layouts & Loading
+- [x] 6.0 Views, Layouts & Loading
   **Context:** SSR view for signup.
 
-  - [ ] 6.1 Add `src/features/auth/views/SignupView.tsx` (prefetch, Suspense, ErrorBoundary)
+  - [x] 6.1 Add `src/features/auth/views/SignUpView.tsx` (completed)
     **Files:** `src/features/auth/views/SignupView.tsx`
     **Skills:** `next-view-expert`
     **Estimate:** 0.5 h
 
-- [ ] 7.0 Component UI — Pure Server
+- [x] 7.0 Component UI — Pure Server
   **Context:** Server‑only UI pieces.
 
-  - [ ] 7.1 Create `src/features/auth/components/SignupCard.tsx` (static layout)
+  - [x] 7.1 AuthSignUpForm component (`src/features/auth/components/AuthSignUpForm.tsx`) exists (completed)
     **Files:** `src/features/auth/components/SignupCard.tsx`
     **Skills:** `next-component-expert`, Shadcn UI
     **Estimate:** 0.5 h
 
-- [ ] 8.0 Component Client Islands
+- [x] 8.0 Component Client Islands
   **Context:** Form actions need client interactivity.
 
-  - [ ] 8.1 Create `src/features/auth/components/SignupFormActions.tsx` with `'use client'` handling submit, loading, error state
+  - [x] 8.1 AuthSignUpForm handles client actions (completed)
     **Files:** `src/features/auth/components/SignupFormActions.tsx`
     **Skills:** `next-component-expert`, `next-hooks-expert`
     **Estimate:** 0.5 h
 
-  - [ ] 8.2 Wire actions into `SignupCard` via re‑export `index.tsx`
+  - [x] 8.2 Wire actions into `SignupCard` via re‑export `index.tsx`
     **Files:** `src/features/auth/components/SignupForm/index.tsx`
     **Estimate:** 0.5 h

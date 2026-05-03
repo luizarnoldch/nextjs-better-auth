@@ -145,7 +145,7 @@ export const authRouter = createTRPCRouter({
     }
   }),
 
-  requestPasswordReset: protectedProcedure.input(requestPasswordResetSchema).mutation(async ({ input }) => {
+  requestPasswordReset: baseProcedure.input(requestPasswordResetSchema).mutation(async ({ input }) => {
     try {
       await auth.api.requestPasswordReset({
         body: {
@@ -164,7 +164,7 @@ export const authRouter = createTRPCRouter({
     }
   }),
 
-  resetPassword: protectedProcedure.input(resetPasswordSchema).mutation(async ({ input }) => {
+  resetPassword: baseProcedure.input(resetPasswordSchema).mutation(async ({ input }) => {
     try {
       await auth.api.resetPassword({
         body: {

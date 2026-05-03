@@ -1,7 +1,7 @@
 ---
 id: 1031
 title: Build Reset Password Page
-status: backlog
+status: done
 project: 2001
 priority: medium
 estimate: 3
@@ -9,7 +9,7 @@ url:
 startTime: 
 endTime: 
 date: 2026-04-30
-completed: 
+completed: 2026-05-03
 allDay: false
 archived: false
 tags: [frontend]
@@ -33,8 +33,8 @@ Create the `/reset-password` page to accept a new password and complete the flow
 ```
 
 ## Definition of Done:
-- [ ] Code is committed and pushed
-- [ ] Password reset succeeds when tested
-- [ ] No TypeScript errors (`bun build` passes)
-- [ ] No lint errors (`bun lint` passes)
-- [ ] Peer review requested
+- [x] Code is committed and pushed
+- [x] Password reset succeeds when tested
+- [x] No TypeScript errors (`bun build` passes)
+- [x] No lint errors (`bun lint` passes)
+- [x] Peer review requested

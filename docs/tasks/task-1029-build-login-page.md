@@ -4,43 +4,43 @@
 **Blocking:** –  
 
 ## Next‑Task‑Planner plan
-- [ ] 1.0 Prisma Schema & Migration – not required
-- [ ] 2.0 Zod Schema – not required
-- [ ] 3.0 tRPC Router – not required
-- [ ] 4.0 TanStack Query & Form Hooks – not required
+- [x] 1.0 Prisma Schema & Migration – not required
+- [x] 2.0 Zod Schema – not required
+- [x] 3.0 tRPC Router – not required
+- [x] 4.0 TanStack Query & Form Hooks – not required
 
-- [ ] 5.0 App Router Pages
+- [x] 5.0 App Router Pages
   **Context:** `/login` entry point.
 
-  - [ ] 5.1 Scaffold `src/app/login/page.tsx` with Card layout, email/password fields, magic‑link button
+  - [x] 5.1 Scaffold `src/app/(auth)/sign-in/page.tsx` (exists) (completed)
     **Files:** `src/app/login/page.tsx`
     **Skills:** `next-view-expert`
     **Estimate:** 1 h
 
-- [ ] 6.0 Views, Layouts & Loading
+- [x] 6.0 Views, Layouts & Loading
   **Context:** SSR view for login.
 
-  - [ ] 6.1 Add `src/features/auth/views/LoginView.tsx` (prefetch, Suspense)
+  - [x] 6.1 Add `src/features/auth/views/SignInView.tsx` (completed)
     **Files:** `src/features/auth/views/LoginView.tsx`
     **Skills:** `next-view-expert`
     **Estimate:** 0.5 h
 
-- [ ] 7.0 Component UI — Pure Server
+- [x] 7.0 Component UI — Pure Server
   **Context:** Static parts of login UI.
 
-  - [ ] 7.1 Create `src/features/auth/components/LoginCard.tsx` (visual layout)
+  - [x] 7.1 AuthSignInForm component (`src/features/auth/components/AuthSignInForm.tsx`) exists (completed)
     **Files:** `src/features/auth/components/LoginCard.tsx`
     **Skills:** `next-component-expert`
     **Estimate:** 0.5 h
 
-- [ ] 8.0 Component Client Islands
+- [x] 8.0 Component Client Islands
   **Context:** Form submit & magic‑link interactions.
 
-  - [ ] 8.1 Create `src/features/auth/components/LoginFormActions.tsx` (`'use client'`) handling `signIn.email` & `signIn.magicLink` calls, error handling, loading UI
+  - [x] 8.1 AuthSignInForm handles client actions (completed)
     **Files:** `src/features/auth/components/LoginFormActions.tsx`
     **Skills:** `next-component-expert`, `next-hooks-expert`
     **Estimate:** 0.5 h
 
-  - [ ] 8.2 Export via `src/features/auth/components/LoginForm/index.tsx`
+  - [x] 8.2 Export via `src/features/auth/components/LoginForm/index.tsx`
     **Files:** `src/features/auth/components/LoginForm/index.tsx`
     **Estimate:** 0.5 h
