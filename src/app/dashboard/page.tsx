@@ -1,7 +1,7 @@
-import AuthUpdateProfileForm from '@/features/auth/components/AuthUpdateProfileForm';
+import UserProfileView from '@/features/auth/views/UserProfileView';
 
 const DashboardPage = () => {
-  return <AuthUpdateProfileForm />;
+  return <UserProfileView />;
 };
 
 export default DashboardPage;

@@ -29,6 +29,9 @@ const envSchema = z.object({
   POLAR_WEBHOOK_SECRET: z.string(),
   POLAR_ORGANIZATION_ID: z.string(),
   POLAR_ENVIRONMENT: z.enum(['production', 'sandbox']).default('sandbox'),
+
+  // Admin
+  ADMIN_EMAILS: z.string().optional(),
 });
 
 // Parse and validate
@@ -65,6 +68,10 @@ const config = {
     webhookSecret: parsedEnv.POLAR_WEBHOOK_SECRET,
     organizationId: parsedEnv.POLAR_ORGANIZATION_ID,
     environment: parsedEnv.POLAR_ENVIRONMENT,
+  },
+
+  admin: {
+    whitelist: parsedEnv.ADMIN_EMAILS ? parsedEnv.ADMIN_EMAILS.split(',').map((e) => e.trim()) : [],
   },
 };
 

@@ -14,11 +14,16 @@ export const emailVerificationOptions: Parameters<typeof betterAuth>[0]['emailVe
    * Function used to send the verification email.
    */
   sendVerificationEmail: async ({ user, url, token }) => {
+    const fullUser = user as any;
     // Default verification flow
     await sendVerificationEmail({
       user: {
         ...user,
         image: user.image ?? null,
+        role: fullUser.role ?? null,
+        banned: fullUser.banned ?? null,
+        banReason: fullUser.banReason ?? null,
+        banExpires: fullUser.banExpires ?? null,
       },
       url,
       token,

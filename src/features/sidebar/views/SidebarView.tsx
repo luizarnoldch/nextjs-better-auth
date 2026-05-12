@@ -15,6 +15,8 @@ import { NavigationTeamSwitcher } from '../components/NavigationTeamSwitcher';
 import { NavigationMain } from '../components/NavigationMain';
 import { AuthNavUser } from '@/features/auth/components/AuthNavUser';
 import { Separator } from '@/components/ui/separator';
+import { useSession } from '@/lib/auth-client';
+import { ShieldAlert } from 'lucide-react';
 
 // This is sample data.
 const data = {
@@ -55,6 +57,9 @@ const data = {
 };
 
 export function SidebarView({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { data: session } = useSession();
+  const isAdmin = session?.user?.role === 'admin';
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
@@ -65,6 +70,17 @@ export function SidebarView({ ...props }: React.ComponentProps<typeof Sidebar>) 
       </div>
       <SidebarContent>
         <NavigationMain items={data.navMain} />
+        {isAdmin && (
+          <NavigationMain
+            items={[
+              {
+                title: 'Admin Dashboard',
+                url: '/dashboard/admin/users',
+                icon: ShieldAlert,
+              },
+            ]}
+          />
+        )}
       </SidebarContent>
       <SidebarFooter>
         <AuthNavUser />
