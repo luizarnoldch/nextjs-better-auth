@@ -1,12 +1,19 @@
+'use client';
+
+import type React from 'react';
+import OrganizationGuard from '@/features/organization/components/OrganizationGuard';
 import SidebarLayout from '@/features/sidebar/views/SidebarLayout';
-import React from 'react';
 
 type DashBoardLayoutProps = {
   children: React.ReactNode;
 };
 
 const DashBoardLayout = ({ children }: DashBoardLayoutProps) => {
-  return <SidebarLayout>{children}</SidebarLayout>;
+  return (
+    <OrganizationGuard>
+      <SidebarLayout>{children}</SidebarLayout>
+    </OrganizationGuard>
+  );
 };
 
 export default DashBoardLayout;

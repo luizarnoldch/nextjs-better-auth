@@ -28,6 +28,8 @@ model User {
   members     Member[]
   invitations Invitation[]
 
+  teammembers TeamMember[]
+
   @@unique([email])
   @@map("user")
 }
@@ -45,6 +47,8 @@ model Session {
 
   impersonatedBy       String?
   activeOrganizationId String?
+
+  activeTeamId String?
 
   @@unique([token])
   @@index([userId])
@@ -137,7 +141,7 @@ model UserSubscription {
 }
 
 model Organization {
-  id          String       @id
+  id          String       @id @default(uuid())
   name        String
   slug        String
   logo        String?
@@ -146,12 +150,15 @@ model Organization {
   members     Member[]
   invitations Invitation[]
 
+  organizationroles OrganizationRole[]
+  teams             Team[]
+
   @@unique([slug])
   @@map("organization")
 }
 
 model Member {
-  id             String       @id
+  id             String       @id @default(uuid())
   organizationId String
   organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
   userId         String
@@ -166,7 +173,7 @@ model Member {
 }
 
 model Invitation {
-  id             String       @id
+  id             String       @id @default(uuid())
   organizationId String
   organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
   email          String
@@ -177,7 +184,49 @@ model Invitation {
   inviterId      String
   user           User         @relation(fields: [inviterId], references: [id], onDelete: Cascade)
 
+  teamId String?
+
   @@index([organizationId])
   @@index([email])
   @@map("invitation")
+}
+
+model OrganizationRole {
+  id             String       @id @default(uuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  role           String
+  permission     String
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime?    @updatedAt
+
+  @@index([organizationId])
+  @@index([role])
+  @@map("organizationRole")
+}
+
+model Team {
+  id             String       @id @default(uuid())
+  name           String
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  createdAt      DateTime
+  updatedAt      DateTime?    @updatedAt
+  teammembers    TeamMember[]
+
+  @@index([organizationId])
+  @@map("team")
+}
+
+model TeamMember {
+  id        String    @id @default(uuid())
+  teamId    String
+  team      Team      @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime?
+
+  @@index([teamId])
+  @@index([userId])
+  @@map("teamMember")
 }

@@ -6,9 +6,9 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { createTRPCClient, httpBatchLink } from '@trpc/client';
 import { createTRPCContext } from '@trpc/tanstack-react-query';
 import { useState } from 'react';
+import superjson from 'superjson';
 import { makeQueryClient } from './query-client';
 import type { AppRouter } from './routers/_app';
-import superjson from 'superjson';
 
 export const { TRPCProvider, useTRPC } = createTRPCContext<AppRouter>();
 
@@ -23,6 +23,7 @@ function getQueryClient() {
   // suspends during the initial render. This may not be needed if we
   // have a suspense boundary BELOW the creation of the query client
   if (!browserQueryClient) browserQueryClient = makeQueryClient();
+  
   return browserQueryClient;
 }
 
@@ -51,6 +52,12 @@ export function TRPCReactProvider(
         httpBatchLink({
           transformer: superjson,
           url: getUrl(),
+          fetch(url, options) {
+            return fetch(url, {
+              ...options,
+              credentials: 'include',
+            });
+          },
         }),
       ],
     }),

@@ -1,15 +1,15 @@
-// [For current Version]
 import { headers } from 'next/headers';
 import { type NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/lib/auth';
 
 export async function proxy(request: NextRequest) {
-  console.log('✅ middleware disparado en:', request.nextUrl.pathname);
-
   const { pathname } = request.nextUrl;
 
   const isAuthRoute = pathname === '/sign-in' || pathname === '/sign-up';
-  const isProtectedRoute = pathname.startsWith('/dashboard');
+  const isProtectedRoute =
+    pathname.startsWith('/dashboard') ||
+    pathname.startsWith('/onboarding') ||
+    pathname.startsWith('/accept-invitation');
 
   const session = await auth.api.getSession({
     headers: await headers(),
@@ -27,10 +27,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Aplica el middleware solo a estas rutas
-  matcher: [
-    '/sign-in',
-    '/sign-up',
-    '/dashboard/:path*', // cubre /dashboard y subrutas
-  ],
+  matcher: ['/sign-in', '/sign-up', '/dashboard/:path*', '/onboarding/:path*', '/accept-invitation/:path*'],
 };

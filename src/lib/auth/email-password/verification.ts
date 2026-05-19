@@ -1,6 +1,17 @@
 import { betterAuth } from 'better-auth';
 import { sendVerificationEmail } from '@/lib/resend';
 
+type UserWithRole = {
+  id: string;
+  email: string;
+  name: string;
+  image?: string | null;
+  role?: string | null;
+  banned?: boolean | null;
+  banReason?: string | null;
+  banExpires?: Date | null;
+};
+
 /**
  * Configuration for email verification logic.
  */
@@ -14,7 +25,7 @@ export const emailVerificationOptions: Parameters<typeof betterAuth>[0]['emailVe
    * Function used to send the verification email.
    */
   sendVerificationEmail: async ({ user, url, token }) => {
-    const fullUser = user as any;
+    const fullUser = user as UserWithRole;
     // Default verification flow
     await sendVerificationEmail({
       user: {

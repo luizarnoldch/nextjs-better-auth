@@ -44,8 +44,9 @@ export function UserPasswordForm({ userId }: { userId: string }) {
       toast.success('Password updated successfully');
       setPassword('');
       setConfirmPassword('');
-    } catch (err: any) {
-      toast.error(err.message || 'Failed to update password');
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to update password';
+      toast.error(message);
     } finally {
       setLoading(false);
     }

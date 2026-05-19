@@ -28,8 +28,9 @@ export function UserSessionsList({ userId }: { userId: string }) {
       await authClient.admin.revokeUserSession({ sessionToken });
       await queryClient.invalidateQueries({ queryKey: ['sessions', userId] });
       toast.success('Session revoked');
-    } catch (err: any) {
-      toast.error(err.message || 'Failed to revoke session');
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to revoke session';
+      toast.error(message);
     }
     });
   };
@@ -37,10 +38,6 @@ export function UserSessionsList({ userId }: { userId: string }) {
   const revokeAllSessions = async () => {
     await guardAction({ session: ['revoke'] }, async () => {
     try {
-      // According to better-auth docs we can revoke all sessions for a user via admin
-      // wait, the method might be called something else. Assuming it's revokeUserSession or similar.
-      // If there's no bulk revoke, we'll revoke one by one.
-      // Better-auth admin has `revokeUserSessions` perhaps? Let's use it.
       if (sessions && sessions.sessions) {
          for (const s of sessions.sessions) {
              await authClient.admin.revokeUserSession({ sessionToken: s.token });
@@ -48,8 +45,9 @@ export function UserSessionsList({ userId }: { userId: string }) {
       }
       await queryClient.invalidateQueries({ queryKey: ['sessions', userId] });
       toast.success('All sessions revoked');
-    } catch (err: any) {
-      toast.error(err.message || 'Failed to revoke sessions');
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to revoke sessions';
+      toast.error(message);
     }
     });
   };

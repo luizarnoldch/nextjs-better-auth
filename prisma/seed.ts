@@ -1,3 +1,5 @@
+import { randomUUID } from 'node:crypto';
+import { hashPassword } from '@/lib/auth/email-password/password';
 import config from '@/lib/config';
 import s3Client from '@/lib/minio';
 import prisma from '@/lib/prisma';
@@ -17,9 +19,9 @@ const getPublicReadPolicy = (bucketName: string) => {
       {
         Sid: 'PublicReadGetObject',
         Effect: 'Allow',
-        Principal: '*', // Permite el acceso a cualquier persona
-        Action: ['s3:GetObject'], // Solo permite leer/descargar, NO escribir ni borrar
-        Resource: [`arn:aws:s3:::${bucketName}/*`], // Aplica a todos los objetos dentro del bucket
+        Principal: '*',
+        Action: ['s3:GetObject'],
+        Resource: [`arn:aws:s3:::${bucketName}/*`],
       },
     ],
   });
@@ -45,6 +47,48 @@ async function createBucket(bucketName: string, bucketRegion: string) {
   }
 }
 
+async function seedAdminUser() {
+  const adminEmail = 'luizarnoldch@gmail.com';
+  const adminName = 'Admin';
+  const adminPassword = '123456789';
+
+  const existing = await prisma.user.findUnique({ where: { email: adminEmail } });
+  if (existing) {
+    console.log(`Admin user already exists: ${adminEmail}`);
+    return;
+  }
+
+  const userId = randomUUID();
+  const now = new Date();
+  const passwordHash = await hashPassword(adminPassword);
+
+  await prisma.user.create({
+    data: {
+      id: userId,
+      name: adminName,
+      email: adminEmail,
+      emailVerified: true,
+      role: 'admin',
+      createdAt: now,
+      updatedAt: now,
+    },
+  });
+
+  await prisma.account.create({
+    data: {
+      id: randomUUID(),
+      userId,
+      accountId: userId,
+      providerId: 'credential',
+      password: passwordHash,
+      createdAt: now,
+      updatedAt: now,
+    },
+  });
+
+  console.log(`Admin user seeded: ${adminEmail}`);
+}
+
 async function main() {
   await createBucket(config.minio.bucketName, config.minio.region);
   try {
@@ -56,6 +100,7 @@ async function main() {
   }
 
   await insertPrivateDefaultImages(config.minio.bucketName);
+  await seedAdminUser();
 }
 
 main()

@@ -12,8 +12,9 @@ import { Loader2, AlertTriangle } from 'lucide-react';
 import { toast } from 'sonner';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useAdminGuard } from '../hooks/useAdminGuard';
+import type { UserWithRole } from '../types/user.types';
 
-export function UserDestructiveActions({ user }: { user: any }) {
+export function UserDestructiveActions({ user }: { user: UserWithRole }) {
   const router = useRouter();
   const queryClient = useQueryClient();
   const { guardAction } = useAdminGuard();
@@ -38,8 +39,9 @@ export function UserDestructiveActions({ user }: { user: any }) {
         setBanReason('');
       }
       await queryClient.invalidateQueries({ queryKey: ['user', user.id] });
-    } catch (err: any) {
-      toast.error(err.message || 'Failed to update ban status');
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to update ban status';
+      toast.error(message);
     } finally {
       setLoading(false);
     }
@@ -58,8 +60,9 @@ export function UserDestructiveActions({ user }: { user: any }) {
       await authClient.admin.removeUser({ userId: user.id });
       toast.success('User deleted successfully');
       router.push('/dashboard/admin/users');
-    } catch (err: any) {
-      toast.error(err.message || 'Failed to delete user');
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to delete user';
+      toast.error(message);
     } finally {
       setLoading(false);
       setIsDeleteDialogOpen(false);

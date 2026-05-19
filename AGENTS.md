@@ -51,3 +51,4 @@ Copy `.env.example` to `.env` and fill in the required values. Environment varia
 - **Validation:** Use Zod for schema validation (forms, environment variables, etc.).
 - **Authentication:** Utilize `auth` and `authClient` from `src/lib/` for server-side and client-side authentication.
 - **Prisma Client:** Import the custom Prisma client from `src/lib/prisma` instead of `@prisma/client` directly to ensure proper adapter configuration.
+- **No `any` Types:** Avoid using `any` type. Create proper type definitions or import types from libraries. If types are missing from third-party libraries, create custom types in `*.types.ts` files adjacent to the relevant module. Use type assertions with specific types instead of `any`.

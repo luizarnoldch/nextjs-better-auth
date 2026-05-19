@@ -3,6 +3,7 @@ import { TRPCError } from '@trpc/server';
 import polar from '@/lib/polar';
 import config from '@/lib/config';
 import { createCheckoutLinkSchema, listProductsSchema } from '../schema/payments.schema';
+import type { PolarProduct, FormattedProduct } from '../schema/payments.types';
 
 export const paymentsRouter = createTRPCRouter({
   list: baseProcedure.input(listProductsSchema).query(async ({ input }) => {
@@ -13,20 +14,23 @@ export const paymentsRouter = createTRPCRouter({
         sorting: ['price_amount'],
       });
       const items = result.result.items;
-      const products = items.map((product: any) => ({
-        id: product.id,
-        name: product.name,
-        description: product.description,
-        is_recurring: product.isRecurring,
-        prices: product.prices.map((p: any) => ({
+      const products: FormattedProduct[] = items.map((product) => {
+        const p = product as PolarProduct;
+        return {
           id: p.id,
-          amount_type: p.amountType,
-          price_currency: p.priceCurrency || 'USD',
-          price_amount: p.priceAmount || 0,
-          recurring_interval: product.recurringInterval,
-        })),
-        highlights: product.benefits?.map((b: any) => b.description) || [],
-      }));
+          name: p.name,
+          description: p.description ?? null,
+          is_recurring: p.isRecurring,
+          prices: p.prices.map((price) => ({
+            id: price.id,
+            amount_type: price.amountType,
+            price_currency: price.priceCurrency || 'USD',
+            price_amount: price.priceAmount || 0,
+            recurring_interval: (p.recurringInterval as 'month' | 'year' | null) ?? null,
+          })),
+          highlights: p.benefits?.map((b) => b.description).filter((h): h is string => h !== null) || [],
+        };
+      });
       return products;
     } catch (error) {
       console.error('Error listing products from Polar:', error);

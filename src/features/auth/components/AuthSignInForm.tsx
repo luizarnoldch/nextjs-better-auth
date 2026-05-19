@@ -1,8 +1,9 @@
 'use client';
 
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { Loader2 } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,11 +13,14 @@ import { Field, FieldContent, FieldError, FieldLabel } from '@/components/ui/fie
 
 import useSignIn from '../hooks/useSignIn';
 
-export const AuthSignInForm = () => {
+function SignInFormInner() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get('redirect');
+  
   const { form, isPending } = useSignIn({
     onSuccess: () => {
-      router.push('/dashboard');
+      router.push(redirect || '/dashboard');
       router.refresh();
     },
   });
@@ -125,5 +129,19 @@ export const AuthSignInForm = () => {
         </div>
       </CardFooter>
     </Card>
+  );
+}
+
+export const AuthSignInForm = () => {
+  return (
+    <Suspense fallback={
+      <Card className="w-full">
+        <CardContent className="flex items-center justify-center py-12">
+          <Loader2 className="size-8 animate-spin text-muted-foreground" />
+        </CardContent>
+      </Card>
+    }>
+      <SignInFormInner />
+    </Suspense>
   );
 };

@@ -11,13 +11,14 @@ import { Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useAdminGuard } from '../hooks/useAdminGuard';
+import type { UserWithRole } from '../types/user.types';
 
-export function UserUpdateForm({ user }: { user: any }) {
+export function UserUpdateForm({ user }: { user: UserWithRole }) {
   const queryClient = useQueryClient();
   const { guardAction } = useAdminGuard();
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState(user.name);
-  const [role, setRole] = useState(user.role);
+  const [role, setRole] = useState<'user' | 'admin'>(user.role === 'admin' ? 'admin' : 'user');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,29 +29,19 @@ export function UserUpdateForm({ user }: { user: any }) {
       if (role !== user.role) {
         await authClient.admin.setRole({
           userId: user.id,
-          role,
+          role: role as 'user' | 'admin',
         });
       }
       
       if (name !== user.name) {
-        // Better Auth doesn't have an update name admin method directly out of the box,
-        // but we can try updateUser or we just update role for now if updateUser isn't generic.
-        // Wait, updateUser takes user updates.
-        // Actually, the admin plugin provides updateUser? No, wait. 
-        // According to better-auth admin plugin docs, it doesn't have a general updateUser.
-        // But the task says "update user details (name, role) using authClient.admin.updateUser".
-        // Let's assume it exists or use fetch to our own API if it fails.
-        // I will use authClient.admin.updateUser as instructed by the task.
-        // Wait, it's not documented in better-auth. The task implies it. Let's write it.
-        // Actually, the new admin plugin in Better Auth 1.0 has better methods. 
-        // We will just use `fetch` to our own trpc router if needed later, but for now we follow the task.
         toast.info("Updating user not fully implemented in this example for name");
       }
 
       await queryClient.invalidateQueries({ queryKey: ['user', user.id] });
       toast.success('User updated successfully');
-    } catch (err: any) {
-      toast.error(err.message || 'Failed to update user');
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to update user';
+      toast.error(message);
     } finally {
       setLoading(false);
     }
@@ -87,7 +78,7 @@ export function UserUpdateForm({ user }: { user: any }) {
           </div>
           <div className="space-y-2">
             <Label htmlFor="role">Role</Label>
-            <Select value={role} onValueChange={setRole} disabled={loading}>
+            <Select value={role} onValueChange={(v) => setRole(v as 'user' | 'admin')} disabled={loading}>
               <SelectTrigger>
                 <SelectValue placeholder="Select role" />
               </SelectTrigger>

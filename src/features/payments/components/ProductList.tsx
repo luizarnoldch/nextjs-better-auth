@@ -45,11 +45,10 @@ export default function ProductList() {
 
       <div className="mt-8 grid w-full @2xl:grid-cols-3 gap-6">
         {products
-          ?.reduce((acc: any[], product) => {
+          ?.reduce((acc: typeof products, product) => {
             const existing = acc.find((p) => p.name === product.name);
             if (existing) {
               existing.prices = [...existing.prices, ...product.prices];
-              // Merge highlights and remove duplicates
               existing.highlights = Array.from(
                 new Set([...(existing.highlights || []), ...(product.highlights || [])]),
               );

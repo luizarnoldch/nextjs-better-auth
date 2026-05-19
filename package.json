@@ -10,6 +10,7 @@
     "lint": "biome check",
     "format": "biome format --write",
     "db:reset": "tsx prisma/reset.ts",
+    "db:generate": "bunx @better-auth/cli generate",
     "db:seed": "prisma db seed",
     "db:sync-products": "tsx prisma/sync-products.ts"
   },

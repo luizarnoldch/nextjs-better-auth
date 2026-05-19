@@ -24,7 +24,7 @@ async function cleanBuckets() {
         console.error(`Failed to remove bucket ${bucket.name}`, err);
       }
     }
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error deleting bucket:', error);
   }
 }

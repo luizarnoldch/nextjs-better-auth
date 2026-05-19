@@ -30,8 +30,9 @@ export function UserImpersonateButton({ userId }: { userId: string }) {
       // Re-render server components with new impersonation cookie
       router.refresh();
       router.push('/dashboard');
-    } catch (err: any) {
-      toast.error(err.message || 'Failed to impersonate user');
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to impersonate user';
+      toast.error(message);
       setLoading(false);
     }
     });

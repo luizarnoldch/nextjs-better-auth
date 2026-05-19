@@ -30,6 +30,10 @@ const envSchema = z.object({
   POLAR_ORGANIZATION_ID: z.string(),
   POLAR_ENVIRONMENT: z.enum(['production', 'sandbox']).default('sandbox'),
 
+  // Resend
+  RESEND_API_KEY: z.string().optional(),
+  RESEND_FROM_EMAIL: z.string().optional(),
+
   // Admin
   ADMIN_EMAILS: z.string().optional(),
 });
@@ -68,6 +72,11 @@ const config = {
     webhookSecret: parsedEnv.POLAR_WEBHOOK_SECRET,
     organizationId: parsedEnv.POLAR_ORGANIZATION_ID,
     environment: parsedEnv.POLAR_ENVIRONMENT,
+  },
+
+  resend: {
+    apiKey: parsedEnv.RESEND_API_KEY,
+    fromEmail: parsedEnv.RESEND_FROM_EMAIL,
   },
 
   admin: {

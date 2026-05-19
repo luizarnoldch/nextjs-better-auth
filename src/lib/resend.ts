@@ -1,12 +1,14 @@
 'use server';
 
 import { Resend } from 'resend';
+import config from './config';
 import EmailVerification from '@/features/email/components/email-verification';
 import PasswordResetEmail from '@/features/email/components/password-reset-email';
+import OrganizationInvitationEmail from '@/features/email/components/organization-invitation';
 import type { User } from '@/generated/prisma/client';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const resend_from = process.env.RESEND_FROM_EMAIL ?? '';
+const resend = new Resend(config.resend.apiKey);
+const resend_from = config.resend.fromEmail ?? '';
 
 type SendEmailVerificationProps = {
   user: User & { email: string | null };
@@ -62,6 +64,37 @@ export const sendPasswordResetEmail = async (request: SendPasswordResetEmailProp
     }
 
     console.log('[resend.ts] password reset email sent successfully:', data);
+    return { success: true, data };
+  } catch (error) {
+    console.error('[resend.ts] catch error:', error);
+    throw error;
+  }
+};
+
+type SendOrganizationInvitationEmailProps = {
+  email: string;
+  organizationName: string;
+  inviterName: string;
+  inviteUrl: string;
+};
+
+export const sendOrganizationInvitationEmail = async (request: SendOrganizationInvitationEmailProps) => {
+  const { email, organizationName, inviterName, inviteUrl } = request;
+  console.log('[resend.ts] sendOrganizationInvitationEmail to:', email);
+  try {
+    const { data, error } = await resend.emails.send({
+      from: resend_from,
+      to: email,
+      subject: `Invitation to join ${organizationName}`,
+      react: OrganizationInvitationEmail({ organizationName, inviterName, inviteUrl }),
+    });
+
+    if (error) {
+      console.error('[resend.ts] resend error:', error);
+      throw error;
+    }
+
+    console.log('[resend.ts] organization invitation email sent successfully:', data);
     return { success: true, data };
   } catch (error) {
     console.error('[resend.ts] catch error:', error);

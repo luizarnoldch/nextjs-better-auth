@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useQueryClient } from '@tanstack/react-query';
-import { authClient, useSession } from '@/lib/auth-client';
+import { authClient, useSession, type SessionWithImpersonation } from '@/lib/auth-client';
 import { useTRPC } from '@/trpc/client';
 import { Button } from '@/components/ui/button';
 import { Loader2, UserCog } from 'lucide-react';
@@ -16,8 +16,8 @@ export function ImpersonationBanner() {
   const queryClient = useQueryClient();
   const trpc = useTRPC();
 
-  // impersonatedBy is added by the admin plugin on the session object
-  const impersonatedBy = (session?.session as any)?.impersonatedBy as string | undefined;
+  const typedSession = session as SessionWithImpersonation | null;
+  const impersonatedBy = typedSession?.session?.impersonatedBy;
 
   if (!session || !impersonatedBy) {
     return null;
@@ -25,19 +25,16 @@ export function ImpersonationBanner() {
 
   const handleStop = async () => {
     setLoading(true);
-    // Capture before session changes
     const impersonatedUserId = session.user.id;
     try {
       await authClient.admin.stopImpersonating();
-      // Sync Better Auth reactive atom — drives all useSession() consumers (sidebar, banner)
       await refetchSession();
-      // Sync tRPC session cache — drives AuthNavUser
       await queryClient.refetchQueries(trpc.auth.getSession.queryOptions());
-      // Re-render server components with restored admin cookie
       router.refresh();
       router.push(`/dashboard/admin/users/${impersonatedUserId}`);
-    } catch (err: any) {
-      toast.error(err.message || 'Failed to stop impersonating');
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to stop impersonating';
+      toast.error(message);
       setLoading(false);
     }
   };
