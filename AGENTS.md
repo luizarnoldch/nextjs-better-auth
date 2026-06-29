@@ -1,3 +1,9 @@
+<!-- BEGIN:nextjs-agent-rules -->
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+<!-- END:nextjs-agent-rules -->
+
 # Project: Next.js Better Auth Template
 
 This project is a web application that allows users to learn better-auth library and its features. The application provides a user-friendly interface for exploring the library's capabilities and understanding how to use it effectively.

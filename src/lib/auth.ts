@@ -19,7 +19,6 @@ export const auth = betterAuth({
   emailAndPassword: emailAndPasswordOptions,
   emailVerification: emailVerificationOptions,
   plugins: [
-    nextCookies(),
     polar(polarPluginOptions),
     admin({
       ac,
@@ -88,6 +87,7 @@ export const auth = betterAuth({
         },
       },
     }),
+    nextCookies(),
   ],
   hooks: hooksOptions,
   databaseHooks: {
